@@ -9,3 +9,4 @@
 \contentsline {subsection}{\numberline {3.3}Equivalence relations}{10}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Groups}{12}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Monoids}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Groups}{14}{subsection.4.2}%

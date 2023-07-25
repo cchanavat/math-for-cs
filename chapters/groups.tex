@@ -55,7 +55,7 @@ Groups are mathematical structures that arise everywhere. Groups encode symmetri
     so in particular letting \( x = e \), we get \( e' \cdot e = e \). Now, \( e \) is also neutral element, so for all \( x \), we have \( x \cdot e = x \), hence with \( x = e' \), we get \( e' = e' \cdot e \), so \( e' = e \).
 \end{lemproof}
 
-\begin{cdef}{}{commutative}
+\begin{cdef}{}{commutative_monoid}
     Let \( (X, \cdot, e) \) be a monoid with binary operation \( \cdot \) and neutral element \( e \). We say that \( X \) is \cemph{commutative} if 
     \begin{equation*}
         \forall x,y \in X, x \cdot y = y \cdot x.
@@ -134,3 +134,61 @@ The kernel and the image have in fact a structure of monoid, so when one is give
     Prove that if \( (X_i)_{i\in I} \) is a family of monoids, indeed \( \prod_{i \in I} X_i \) is a monoid.
 \end{cex}
 
+Given a set \( X \), how can we make it a monoid \( X^* \) such that elements of \( X \) are inside \( X^* \)? To see that, first suppose \( X = \{ x \} \), a set with an element. We construct a monoid \( X^* \). As it is a monoid, it must have a neutral element, we call it \( e \). We also want \( x \in X^* \), so we put it there. So far our monoid \( X^* \) has elements \( e \) and \( x \). But now, we can also consider \( x\cdot x \), a priori, this element does not belong to \( X^* \), but it should still exists, so we add it, and we call it \( xx \) for simplicity. Now our monoid has elements \( \{ e, x, xx \} \), and again we can consider \( x \cdot (x\cdot x) \), or \( (x \cdot x) \cdot x \). Those elements will have to be the same, so we add another element \( xxx \) to the monoid. And we continue forever. The end result will be that the elements of \( X^* \) are strings of \( x \)'s, the monoid operation is concatenation, and the neutral element is the empty string. This indeed satisfies the axioms of monoid, as concatenating is associative, and concatenating the empty string to the left or the right of a word does not change it. Let us give a more general definition, when \( X \) is any set.
+
+\begin{cdef}{}{free_monoid}
+    Let \( X \) be a set. We define \( X^* \) to be the monoid whose elements are finite strings \( x_1 \dots x_n \) with \( x_i \in X \), whose law is concatenation, and whose neutral element is concatenation. This indeed defines a monoid, as concatenation is associative, and concatenating with the empty string does not change a string.
+\end{cdef}
+
+\begin{clem}{}{map_free_monoid}
+    Let \( X \) be any set, and \( (M, \cdot, e_M) \) be a monoid. Then any set-theoretical function \( f : X \to M \) gives rise to a morphism of monoid \( f^* : X^* \to M \) by letting
+    \begin{equation*}
+        f^*(x_1 x_2 \dots x_n) = f(x_1)\cdot f(x_2) \dots f(x_n),
+    \end{equation*}
+    where we allow \( n = 0 \), and we mean \( f^*(e) = e_M \).
+\end{clem}
+\begin{lemproof}{map_free_monoid}
+    By definition, the map indeed maps the neutral element to the neutral element. If \( x_1\dots x_n, y_1 \dots y_m \in X^* \), then 
+    \begin{equation*}
+        f^*(x_1\dots x_n y_1 \dots y_m) = f(x_1) \dots f(x_n)f(y_1) \dots f(x_m) = f^*(x_1\dots x_n)f^*(y_1\dots y_m).
+    \end{equation*}
+\end{lemproof}
+
+\subsection{Groups}
+
+Monoids are interesting objects, but if we ask moreover that every element has an inverse, a whole new world appears, it is the one of groups. 
+\begin{cdef}{}{group}
+    A \cemph{group} \( (G, \cdot, e) \) is a monoid together with a function \( \inv - : G \to G \) that sends \( x \in G \) to \( \inv x \), called the \cemph{inverse} of \( x \), and such that
+    \begin{equation*}
+        \forall x \in G, x \cdot \inv x = e = \inv x \cdot x.
+    \end{equation*}
+    A group is \cemph{abelian} if its underlying monoid is abelian, see Definition \ref{def:commutative_monoid}.
+\end{cdef}
+
+
+\begin{crem}{}{notation_group}
+    The Remark \ref{rem:notation_monoid} also applies for groups, for instance we will often write \( + \) for the law of an abelian group. Furthermore, we extend this notation to \( - x \) to mean \( \inv x \) in the case where the group is abelian.
+\end{crem}
+
+\begin{cexp}{}{example_groups}
+    \begin{itemize}
+        \item \( (\bb Z, +, 0, -) \) is an abelian group.
+        \item \( (\bb R^*, \times, 1, x \mapsto 1/x) \) is an abelian group.
+        \item Let \( X \) be a set, call \( \mathrm{Bij}(X) \) the set of all bijective function \( f : X \to X \). This set is a (non-abelian) group with composition. What is the inverse of a function? What is the neutral element? 
+    \end{itemize}    
+\end{cexp}
+
+\begin{crem}{}{monoid_applies_group}
+    What we said previously about monoid, can also be extended to groups. In particular, neutral element is unique.
+\end{crem}
+
+\begin{clem}{}{inverse_unique}
+    Let \( G \) be a group, and let \( x \in G \). Suppose we have \( x' \in G \) such that \( x' \cdot x = e \) or \( x \cdot x' = e \), then \( x' = \inv x \).
+\end{clem}
+\begin{lemproof}{inverse_unique}
+    Suppose for instance \( x' \cdot x = e \), then multiplying by \( \inv x \) both sides yields
+    \begin{equation*}
+        x' \cdot x \cdot \inv x = e \cdot \inv x,
+    \end{equation*}
+    which simplifies to \( x' = \inv x \). 
+\end{lemproof}
