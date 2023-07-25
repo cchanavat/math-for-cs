@@ -1,0 +1,166 @@
+\section{Logic}
+
+\subsection{Connective}
+
+Mathematics is a language made of sentences. In this section, we learn the basics of its grammar, and how to make well formed sentences. Then, given a well formed sentence, we see a general procedure to see wether a given sentence is true or false. We start with a few list of symbols, that constitute the basic alphabet of mathematics. It is primordial to know them, they are called \cemph{connectives}. We have
+
+\begin{enumerate}
+    \item The \cemph{and}, noted \( \land \). 
+    \item The \cemph{or}, noted \( \lor \). 
+    \item The \cemph{not}, noted \( \neg \). 
+    \item The \cemph{implies}, noted \( \implies \). 
+    \item The \cemph{equivalent}, noted \( \iff \). 
+\end{enumerate}
+
+As in any language, these symbols have a meaning, that somewhat correspond to the intuition. To understand it, let us abbreviate with the letter \( C \), the sentence \textit{the cat is orange}, and with \( D \) the sentence \textit{the dog has three legs}. Then, we write
+\begin{equation*}
+    C \land D
+\end{equation*}
+to mean that both the cat is eating \cemph{and} the dog is sleeping. Then whenever I see the cat, it is orange, and whenever I see the dog, it has three leg. 
+
+Next is the or. It is a little bit different than what we are used to in the English language. We write
+\begin{equation*}
+    C \lor D
+\end{equation*}
+to mean that the cat is orange, \cemph{or} the dog has three leg. This means that at least one of the three following statements is true:
+\begin{enumerate}
+    \item The cat is orange,
+    \item The dog has three legs,
+    \item The cat is orange, and the dog has three legs.
+\end{enumerate}
+In math, the or connective need to to be exclusive. In \( C \lor D \), both \( C \) and \( D \) can be true. It means that after seeing the cat and the dog, I am guarantee that at least the cat will be orange, or the dog will have three legs, at least one of the two statements will be true. 
+
+The next connective of interest is not. We write
+\begin{equation*}
+    \neg D
+\end{equation*}
+to mean that the dog has \cemph{not} three legs, that is whenever I will see the dog, it will have some number of legs and I am guarantee that this number is not three. It can be one, it can be four, it can be something else, but it will not be three.
+
+\begin{cex}{}{and_not}
+    Argue that \( \neg(C \land D) \) says the same thing as \( \neg C \lor \neg D \).
+\end{cex}
+
+We move on to equivalence. We write 
+\begin{equation*}
+    C \iff D
+\end{equation*}
+to mean that knowing that the cat is orange is the same thing as knowing that the dog has three leg. It means that if I go first see the cat to see it orange, then I do not need to go to the dog to see it has three leg. I already know it. Conversely, if I go first see the dog, and it has three legs, then I am sure that the cat is orange.
+
+\begin{cex}{}{iff_sym}
+    Argue that \( C \iff D \) says the same thing as \( D \iff C \).
+\end{cex}
+
+Finally, we have the implication. It is the most used of them all. We write
+\begin{equation*}
+    C \implies D
+\end{equation*}
+to mean that \cemph{if} the cat is orange, \cemph{then} the dog has three legs. It says that if I go see the cat and constate it is orange, then I am guarantee that the dog will have three legs. However, and this is very important, if I do not see that the cat is orange, then I \textit{cannot} say anything at all about the dog. 
+
+\begin{cex}{}{iff_double_implies}
+    Argue that \( (C \implies D) \land (D \implies C) \) says the same thing as \( C \iff D \). Is \( C \implies D \) saying the same thing as \(  D \implies C \)?
+\end{cex}
+
+Notice that when we will do math later, we will freely employ the symbol themselves, or their equivalent English terminology. In particular, we write "if \( X \) then \( Y \)" more often than "\( X \implies Y \)", but keep in mind that they are the same thing. We summarize these constructions with truth tables, you should refer to these when in doubt on what a sentence mean. Here is how to read it. The number \( 1 \) means True, the number \( 0 \) means False. In the table for \( \lor \), on a given row, a column gives a particular truth value to \( C \), to \( D \), and to the resulting \( C \lor D \). For instance, if \( C \) is true, \( D \) is false, we see that \( C \lor D \) is true.  
+\begin{equation*}
+    \begin{array}{| c | c |}
+        \hline
+        C & \neg C \\
+        \hline
+        0 & 1 \\
+        \hline
+        0 & 0 \\
+        \hline
+    \end{array},
+    \begin{array}{| c | c | c |}
+        \hline
+        C & D & C \land D \\
+        \hline
+        0 & 0 & 0 \\
+        \hline
+        0 & 1 & 0 \\
+        \hline
+        1 & 0 & 0 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{array},
+    \begin{array}{| c | c | c |}
+        \hline
+        C & D & C \lor D \\
+        \hline
+        0 & 0 & 0 \\
+        \hline
+        0 & 1 & 1 \\
+        \hline
+        1 & 0 & 1 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{array},
+    \begin{array}{| c | c | c |}
+        \hline
+        C & D & C \iff D \\
+        \hline
+        0 & 0 & 1 \\
+        \hline
+        0 & 1 & 0 \\
+        \hline
+        1 & 0 & 0 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{array},
+    \begin{array}{| c | c | c |}
+        \hline
+        C & D & C \implies D \\
+        \hline
+        0 & 0 & 1 \\
+        \hline
+        0 & 1 & 1 \\
+        \hline
+        1 & 0 & 0 \\
+        \hline
+        1 & 1 & 1 \\
+        \hline
+    \end{array}
+\end{equation*}
+
+
+\subsection{Quantifiers}
+
+So far, we cannot really say much. We need to introduce two new symbols:
+\begin{equation*}
+    \forall, \exists.
+\end{equation*}
+They will allow us to quantify, to say that all things in a big thing share the same property, or that there is some thing in a big thing that has a property. However, there is some subtleties that comes with those symbols, we need to use free variables. Earlier, I said \( D \) means that the dog has three legs. There is no room in this formula, everything is fixed. Allow me to do something, and replace three with the letter \( n \), that will I declare to be an unspecified natural number. Now, I write 
+\begin{equation*}
+    D(n)
+\end{equation*}  
+to mean that the dog has \( n \) legs, for some number \( n \), that I deliberately \textit{not} specify. This \( n \) is called a free variable, it can potentially be any natural number, and it is good to think of it as being \textit{all} the natural number at the same time. Now, if I take a natural number, say \( 7 \), then I will write \( D(7) \) to specify the unknown number \( n \) with 7, and \( D(7) \) means that the dog has seven leg. Notice that our previous sentence \( D \) is now the same thing as \( D(3) \). 
+
+Is the sentence \( D(n) \) true or false? It does not make sense to ask this question. We cannot ask for the truth value of a sentence with free variables, we first need to specify a behavior for our free variable, and this is done with the quantifier. We write
+\begin{equation*}
+    \exists n, D(n)
+\end{equation*}
+to mean that there \cemph{exists} at least a value of \( n \) (like 4, 9, or seven billion) such that the dog has \( n \) legs. For instance, I know \( \exists n, D(n) \) is true because when I will look at my dog, I will count its number of legs, and see that there is \( n = 4 \). We say that \( 4 \) is a \cemph{witness} of \( \exists n, D(n) \). 
+
+Next, we write
+\begin{equation*}
+    \forall n, D(n)
+\end{equation*}
+to mean that \cemph{for all} choice of number \( n \), my dog will have precisely this number of legs. Here, this is quite absurd, because my dog has one and only one number of leg. But consider the following:
+\begin{equation*}
+    \forall n, (5 \leq n \implies \neg D(n)).
+\end{equation*} 
+It means that for all number \( n \), if the number \( n \) is greater or equal to 5, then my dog has not \( n \) legs. This feels more true, as I know indeed that my dog has four legs. 
+
+\begin{cex}{}{write_sentences}
+    Is \( \exists n, \neg D(n) \) true? Can you rewrite \( \neg \exists n, \neg D(n) \) with something with less symbols?
+\end{cex}
+
+
+\subsection{Practical sentences, and how to do proofs}
+
+This was only the tip of the iceberg, and logic is a very powerful language to talk with math. Ultimately, we will also want to do proofs. This section is a practical place that you are invited to reread every time you do not know how to start a proof, or do an exercise. 
+
+\cemph{TODO}

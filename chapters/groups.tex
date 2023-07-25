@@ -1,0 +1,106 @@
+\section{Groups}
+
+Groups are mathematical structure that arise everywhere. Groups encode symmetry in structures, and symmetries are prevalent in math.  As this class is computer-science oriented, we will first introduce monoids, that are object slightly more general than groups, and that anyone in computer science already encounter. Typically, when we consider the regular expression \( (ab)^* \), we are considering the free monoid on the alphabet \( \{ a, b \} \). 
+
+\subsection{Monoids}
+
+\begin{cdef}{}{binary_op}
+    Let \( X \) be a set. A \cemph{binary operation} \( \cdot \) on \( X \) is a function \( \cdot : X \times X \to X \). Instead of writing \( \cdot(x, y) \) for the application of \( \cdot \) to \( (x, y) \), we typically write \( x \cdot y \).
+\end{cdef}
+
+\begin{cexp}{}{example_bin_op}
+    This definition should not be new for you, it is just the abstract version of things we already know. 
+    \begin{itemize}
+        \item The function \( + : \bb N \times \bb N \to \bb N \) is a binary operation.
+        \item The function \( \times : \bb R \times \bb R \to \bb R \) is a binary operation.
+        \item etc.
+    \end{itemize}
+\end{cexp}
+
+\begin{cdef}{}{monoid}
+    Let \( (X, \cdot) \) be a set with a binary operation. We say that \( (X, \cdot) \) is a monoid if
+    \begin{enumerate}
+        \item There exists a particular element \( e \in X \), called the \cemph{neutral element}, such that:
+        \begin{equation*}
+            \forall x \in X, e \cdot x = x = x \cdot e.
+        \end{equation*}
+        \item The binary operation is \cemph{associative}, that is:
+        \begin{equation*}
+            \forall x, y, z \in X, x\cdot(y \cdot z) = (x \cdot y) \cdot z.
+        \end{equation*}
+            In that case, we are allowed to write \( x \cdot y \cdot z  \) to mean either \( x\cdot(y \cdot z) \) or \( (x \cdot y) \cdot z \), as they are equal.
+    \end{enumerate}
+\end{cdef}
+
+\begin{cexp}{}{monoid_R_N}
+    Prove that \( (\bb N, +) \) is a monoid. Is \( (\bb R, \times) \) a monoid? Prove that \( (\bb R^*, \times) \) is a monoid, where by \( \bb R^* \), we mean the set of real number with \( 0 \) removed. What is its neutral element?
+\end{cexp}
+
+\begin{clem}{}{unique_neutral}
+    Neutral elements are unique, that is in a monoid \( (X, \cdot, e) \), if there is an element \( e' \in X \) such that 
+    \begin{equation*}
+        \forall x \in X, e' \cdot x = x = x \cdot e',
+    \end{equation*}
+    we have \( e = e' \).
+\end{clem}
+\begin{lemproof}{unique_neutral}
+    
+\end{lemproof}
+
+\begin{cdef}{}{commutative}
+    Let \( (X, \cdot, e) \) be a monoid with binary operation \( \cdot \) and neutral element \( e \). We say that \( X \) is \cemph{commutative} if 
+    \begin{equation*}
+        \forall x,y \in X, x \cdot y = y \cdot x.
+    \end{equation*} 
+\end{cdef}
+
+\begin{crem}{}{notation_monoid}
+    Here are some common abuse of notation that we do in group theory. We say that \textit{\( X \) is a monoid}, where we are supposed to say \( (X, \cdot, e) \) is a monoid, the data of the binary law and the neutral element being part of the definition. As they are often explicit from the context, we tend to avoid it, and say simply that \( X \) is a monoid.
+
+    More often than not, when the monoid is commutative, we write its law \( + \), and \( 0 \) its neutral element. Beware that these \( + \) and \( 0 \) have a priori nothing to do with the \( + \) and \( 0 \) of the natural numbers. It is just that this notation helps us remember that the monoid is commutative, as is the monoid \( (\bb N, +, 0) \).
+    
+    Also, when \( (X, \cdot, e) \) is a monoid, we also like to write \( xy \) for \( x \cdot y \), like we often write \( st \) for \( s \times t \).    
+\end{crem}
+
+\begin{cdef}{}{morphism_monoid}
+    Let \( (X, \cdot, e_X), (Y, \cdot, e_Y) \) be monoids, a function \( f : X \to Y \) is a \cemph{morphism of monoids} if
+    \begin{equation*}
+        \forall x, y, f(x \cdot y) = f(x) \cdot f(y),
+    \end{equation*}
+    and 
+    \begin{equation*}
+        f(e_X) = e_Y,
+    \end{equation*}
+    that is \( f \) preserves the monoid laws, and it sends the neutral element to the neutral element. 
+\end{cdef}
+
+\begin{cex}{}{exaple_mph_monoid}
+    Prove that the exponential function \( \exp : (\bb R, +) \to (\bb R^*, \times) \) is a morphism of monoids. Is the function 
+    \fun{f}{(\bb N, +, 0)}{(\bb N, +, 0)}{x}{x + 1}
+    a morphism of monoids?
+\end{cex}
+
+\begin{cdef}{}{sumonoid}
+    Let \( X \) be a monoid, and let \( A \subseteq X \). We say that \( A \) is a \cemph{submonoid} if it contains the neutral element and is closed under the monoid law, that is \( e \in A \), and for all \( x, y \in A \), \( xy \in A \).
+\end{cdef}
+
+\begin{cdef}{}{kernel_image}
+    Let \( f : X \to Y \) be a morphism of monoids. We define the \cemph{kernel} of \( f \) to be the set
+    \begin{equation*}
+        \ker(f) \defeq f^{-1}(\{ e_Y \}) = \{ x \in X \mid f(x) = e_Y \} \subseteq X
+    \end{equation*}
+    and the \cemph{image} of \( f \) to be the set
+    \begin{equation*}
+        \im(f) \defeq \{ f(x) \mid x \in X \} \subseteq Y.
+    \end{equation*}
+    (which is the same thing as the set-theoretical image of Definition \ref{def:image_preimage}).
+\end{cdef}
+
+The kernel and the image have in fact a structure of monoid, so when one is given with a morphism of monoid, one get two submonoids for free.
+
+\begin{clem}{}{submonoid_kernel_image}
+    Let \( f : X \to Y  \) be a morphism of monoid. Then \( \ker(f) \) is a submonoid of \( X \), and \( \im(f) \) is a submonoid of \( Y \).
+\end{clem}
+\begin{lemproof}{submonoid_kernel_image}
+    By definition of a morphism of monoid, \( f(e_X) = e_Y \), this means \( e_X \in \ker(f) \). If \( x, y \in \ker(f) \), then
+\end{lemproof}

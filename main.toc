@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Logic}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Connective}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Quantifiers}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Practical sentences, and how to do proofs}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Sets and functions}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Sets}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Functions}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Equivalence relations}{9}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Groups}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Monoids}{10}{subsection.4.1}%

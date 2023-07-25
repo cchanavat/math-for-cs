@@ -1,0 +1,70 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper, top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+
+\usepackage{mlmodern}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[breakable,most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{bbm}
+% \usepackage[shortlabels]{enumitem}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{
+   allbordercolors = Yellow!30,
+}
+
+
+\usepackage{quiver}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{bussproofs}
+\usepackage{multicol}
+\usepackage{paralist}
+
+\input{commands/basics.tex}
+\input{commands/categories.tex}
+\input{commands/colors.tex}
+\input{commands.tex}
+
+% Margins
+% \topmargin=-0.45in
+% \leftmargin=2in
+% \rightmargin=2in
+% \textwidth=4in
+% \textheight=9.0in
+% \headsep=0.25in
+
+\title{ Math: how things do stuff. }
+\author{ Clémence Chanavat}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\vspace{1em}
+
+%--Paper--
+
+\input{chapters/intro.tex}
+\input{chapters/logic.tex}
+\input{chapters/functions.tex}
+\input{chapters/groups.tex}
+
+
+
+%--Bib--
+% \bibliographystyle{alpha}
+% \bibliography{bibs/refs.bib}
+
+\end{document}
+
