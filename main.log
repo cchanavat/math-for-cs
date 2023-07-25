@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  25 JUL 2023 10:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  25 JUL 2023 10:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -905,13 +905,13 @@ LaTeX Font Info:    External font `mlmex10' loaded for size
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- (./chapters/intro.tex
-LaTeX Font Info:    Trying to load font information for TS1+mlmr on input line 13.
+ (./chapters/intro.tex) (./chapters/logic.tex [1
+
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] [3]
+LaTeX Font Info:    Trying to load font information for TS1+mlmr on input line 169.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
 File: ts1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
-)) (./chapters/logic.tex [1
-
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]) (./chapters/functions.tex [3] [4] [5] [6] [7] [8] [9]) (./chapters/groups.tex [10] [11]) [12{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] (./main.aux)
+)) [4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./chapters/functions.tex [5] [6] [7] [8] [9] [10]) [11] (./chapters/groups.tex [12]) [13{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -919,18 +919,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CABB3C70B34BCF7DAF32AEF30119B71A;1320.
  ) 
 Here is how much of TeX's memory you used:
- 31576 strings out of 476025
- 649998 string characters out of 5790023
+ 31583 strings out of 476025
+ 650193 string characters out of 5790023
  1878388 words of memory out of 5000000
- 51361 multiletter control sequences out of 15000+600000
+ 51367 multiletter control sequences out of 15000+600000
  555910 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,10n,104p,937b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,10n,104p,937b,1197s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 249880 bytes).
+Output written on main.pdf (13 pages, 250056 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 271 compressed objects within 3 object streams
- 99 named destinations out of 1000 (max. 500000)
+ 346 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 100 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 
