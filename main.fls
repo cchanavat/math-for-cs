@@ -1,8 +1,8 @@
-PWD /home/clemence/Documents/latex/projects/math-course
+PWD /home/clemence/Documents/phd/teaching/math-cs/math-for-cs
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /home/clemence/Documents/latex/projects/math-course/main.tex
+INPUT /home/clemence/Documents/phd/teaching/math-cs/math-for-cs/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -1208,12 +1208,15 @@ INPUT ./chapters/groups.tex
 INPUT chapters/groups.tex
 INPUT ./chapters/groups.tex
 INPUT chapters/groups.tex
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr12.pfb

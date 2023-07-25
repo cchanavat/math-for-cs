@@ -36,6 +36,10 @@ Groups are mathematical structure that arise everywhere. Groups encode symmetry 
     Prove that \( (\bb N, +) \) is a monoid. Is \( (\bb R, \times) \) a monoid? Prove that \( (\bb R^*, \times) \) is a monoid, where by \( \bb R^* \), we mean the set of real number with \( 0 \) removed. What is its neutral element?
 \end{cexp}
 
+\begin{cexp}{}{trivial_monoid}
+    A very important monoid is the set with one element \( \{ e \} \). The binary law is (necessarily) defined by \( e \cdot e = e \), and the neutral element is (necessarily) \( e \). Check that this is indeed a monoid.
+\end{cexp}
+
 \begin{clem}{}{unique_neutral}
     Neutral elements are unique, that is in a monoid \( (X, \cdot, e) \), if there is an element \( e' \in X \) such that 
     \begin{equation*}
@@ -44,7 +48,11 @@ Groups are mathematical structure that arise everywhere. Groups encode symmetry 
     we have \( e = e' \).
 \end{clem}
 \begin{lemproof}{unique_neutral}
-    
+    Suppose \( e' \) is another neutral element for all \( x \) we have 
+    \begin{equation*}
+        e' \cdot x = x, 
+    \end{equation*}
+    so in particular letting \( x = e \), we get \( e' \cdot e = e \). Now, \( e \) is also neutral element, so for all \( x \), we have \( x \cdot e = x \), hence with \( x = e' \), we get \( e' = e' \cdot e \), so \( e' = e \).
 \end{lemproof}
 
 \begin{cdef}{}{commutative}
@@ -102,5 +110,27 @@ The kernel and the image have in fact a structure of monoid, so when one is give
     Let \( f : X \to Y  \) be a morphism of monoid. Then \( \ker(f) \) is a submonoid of \( X \), and \( \im(f) \) is a submonoid of \( Y \).
 \end{clem}
 \begin{lemproof}{submonoid_kernel_image}
-    By definition of a morphism of monoid, \( f(e_X) = e_Y \), this means \( e_X \in \ker(f) \). If \( x, y \in \ker(f) \), then
+    By definition of a morphism of monoid, \( f(e_X) = e_Y \), this means \( e_X \in \ker(f) \). If \( x, y \in \ker(f) \), then 
+    \begin{equation*}
+        f(xy) = f(x)f(y) = e_Ye_Y = e_Y,
+    \end{equation*}
+    so \( xy \in \ker(f) \). This proves \( \ker(f) \) is a submonoid of \( X \).
+
+    Now for the image, again \( f(e_X) = e_Y \), so \( e_Y \in f(X) = \im(f) \). If \( y, y' \in \im(f) \), then by definition there exist \( x, x' \in X \) such that \( f(x) = y \) and \( f(x') = y' \), so \( yy' = f(x)f(x') = f(xx') \), meaning that \( yy' \in \im(f) \). This proves that \( \im(f) \) is a submonoid of \( Y \). 
 \end{lemproof}
+
+\begin{cdef}{}{product}
+    Let \( X, Y \) be monoids. We define the product of \( X, Y \) to be the monoid whose underlying set is \( X \times Y \), the neutral element is the couple \( (e_X, e_Y) \), and the law is defined pointwise, that is 
+    \begin{equation*}
+        (x, y) \cdot (x', y') \defeq (x\cdot x', y \cdot y').
+    \end{equation*}
+    More generally, if \( (X_i)_{i\in I} \) is a family of monoids, we define the product \( \prod_{i \in I} X_i \) to be the monoid whose underlying set is \( \prod_{i \in I} X_i \), whose neutral element is \( (e_{X_i})_{i \in I} \), and whose law is defined pointwise with
+    \begin{equation*}
+        (x_i)_{i \in I} \cdot (x'_i)_{i \in Y} \defeq (x_i \cdot x'_i)_{i \in I}.
+    \end{equation*}
+\end{cdef}
+
+\begin{cex}{}{product_is_monoid}
+    Prove that if \( (X_i)_{i\in I} \) is a family of monoids, indeed \( \prod_{i \in I} X_i \) is a monoid.
+\end{cex}
+
