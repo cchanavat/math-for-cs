@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  26 JUL 2023 10:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  26 JUL 2023 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -777,14 +777,7 @@ File: ot1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count348
 \l__pdf_internal_box=\box132
-) (./main.aux
-
-LaTeX Warning: Label `def:product' multiply defined.
-
-
-LaTeX Warning: Label `lem:inverse_unique' multiply defined.
-
-)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -915,25 +908,22 @@ LaTeX Font Info:    Trying to load font information for TS1+mlmr on input line 1
  (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
 File: ts1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
 )) [4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./chapters/functions.tex [5] [6] [7] [8] [9] [10]) [11] (./chapters/groups.tex [12] [13{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [14] [15] [16]) [17] (./main.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B697B49AE85AAFA996E3AD87C9BD1635;1408.
+(rerunfilecheck)             Checksum: FC69F997F9D5AB3197BE75692D85AE2D;1774.
  ) 
 Here is how much of TeX's memory you used:
- 31640 strings out of 476025
- 651121 string characters out of 5790023
- 1878388 words of memory out of 5000000
- 51402 multiletter control sequences out of 15000+600000
+ 31667 strings out of 476025
+ 651620 string characters out of 5790023
+ 1877388 words of memory out of 5000000
+ 51420 multiletter control sequences out of 15000+600000
  555910 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,10n,104p,1336b,1197s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (17 pages, 272918 bytes).
+Output written on main.pdf (17 pages, 278696 bytes).
 PDF statistics:
- 401 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
- 253 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 269 words of extra memory for PDF output out of 10000 (max. 10000000)
 

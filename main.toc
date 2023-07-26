@@ -10,3 +10,5 @@
 \contentsline {section}{\numberline {4}Groups}{12}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Monoids}{12}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Groups}{14}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}General theory of groups}{14}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Finite group theory}{17}{subsubsection.4.2.2}%

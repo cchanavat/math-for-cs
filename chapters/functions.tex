@@ -320,6 +320,28 @@ The following exercise emphasizes that the domain and codomain are \textit{reall
     \end{itemize}
 \end{cex}
 
+% \subsection{Cardinality}
+
+The concept of bijection allows us to talk about finite sets, infinite sets, and cardinality. Let \( n \in \bb N \) be a natural number. We write \( [n] \) for the set \( \{ 1, \cdots, n \} \), with convention that \( [0] = \emptyset \).
+
+The next lemma is very important. However, it does not really make sense to prove it formally, as we would need to make precise the foundations we are working with, but we did not. We are hence assuming it, and hope it makes sense intuitively.
+\begin{clem}{Pigeonhole principle}{pigeon_hole}
+    Let \( n, p \in \bb N \). Then
+    \begin{itemize}
+        \item There exists an injection \( f : [n] \to [p] \) if and only if \( n \le p \).
+        \item There exists a surjection \( f : [n] \to [p] \) if and only if \( p \le n \).
+        \item There exists a bijection \( f : [n] \to [p] \) if anf only if \( n = p \).
+    \end{itemize}
+\end{clem}
+% \begin{lemproof}{unique_card}
+%     We do an induction on \( n \). If \( n = 0 \), then \( [0] \le [p] \) always. If \( n = 1 \), then for any function \( f: [1] \to [p] \), we have \( f(1) \in [p] \), so \( [p] \) is not empty, hence \( p \geq 1 \). Suppose we proved that whenever we have an injection \( f : [n] \to [p] \), then \( n \le p \). Assume we have an injection \( f : [n + 1] \to [p] \). Call \( f' : [n] \to [p] \) defined by \( f'(k) = f(k) \), then we check that \( f' \) is injective, because \( f \) is, so by inductive hypothesis, \( n \le p \). Suppose that \( n = p \) 
+% \end{lemproof}
+
+\begin{cdef}{}{finite_set}
+    A set \( X \) is \cemph{finite} if there exists some \( n \in \bb N \) such that \( X \) is in bijection with \( [n] \). In that case, we say that \( X \) has cardinality \( n \), we write \( |X| = n \), and say that \( X \) has \cemph{cardinality} \( n \). This is well defined according to Lemma \ref{lem:pigeon_hole}, for if \( f : X \to [n] \) is a bijection and \( f' :  X \to [p] \) is a bijection, then \( f' \circ \inv f : [n] \to [p]  \) is a bijection, so \( n = p \). 
+    Otherwise, we say that \( X \) is \cemph{infinite}.
+\end{cdef}
+
 
 \subsection{Equivalence relations}
 

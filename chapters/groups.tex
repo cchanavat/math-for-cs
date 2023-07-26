@@ -87,13 +87,13 @@ Before starting, we give a little bit of terminology that will be used throughou
     that is \( f \) preserves the monoid laws, and it sends the neutral element to the neutral element. 
 \end{cdef}
 
-\begin{cex}{}{exaple_mph_monoid}
+\begin{cex}{}{example_mph_monoid}
     Prove that the exponential function \( \exp : (\bb R, +) \to (\bb R^*, \times) \) is a morphism of monoids. Is the function 
     \fun{f}{(\bb N, +, 0)}{(\bb N, +, 0)}{x}{x + 1}
     a morphism of monoids?
 \end{cex}
 
-\begin{cdef}{}{sumonoid}
+\begin{cdef}{}{submonoid}
     Let \( X \) be a monoid, and let \( A \subseteq X \). We say that \( A \) is a \cemph{submonoid} if it contains the neutral element and is closed under the monoid law, that is \( e \in A \), and for all \( x, y \in A \), \( xy \in A \).
 \end{cdef}
 
@@ -124,7 +124,7 @@ The kernel and the image have in fact a structure of monoid, so when one is give
     Now for the image, again \( f(e_X) = e_Y \), so \( e_Y \in f(X) = \im(f) \). If \( y, y' \in \im(f) \), then by definition there exist \( x, x' \in X \) such that \( f(x) = y \) and \( f(x') = y' \), so \( yy' = f(x)f(x') = f(xx') \), meaning that \( yy' \in \im(f) \). This proves that \( \im(f) \) is a submonoid of \( Y \). 
 \end{lemproof}
 
-\begin{cdef}{}{product}
+\begin{cdef}{}{product_monoid}
     Let \( X, Y \) be monoids. We define the product of \( X, Y \) to be the monoid whose underlying set is \( X \times Y \), the neutral element is the couple \( (e_X, e_Y) \), and the law is defined pointwise, that is 
     \begin{equation*}
         (x, y) \cdot (x', y') \defeq (x\cdot x', y \cdot y').
@@ -161,7 +161,10 @@ Given a set \( X \), how can we make it a monoid \( X^* \) such that elements of
 
 \subsection{Groups}
 
-Monoids are interesting objects, but if we ask moreover that every element has an inverse, a whole new world appears, it is the one of groups. 
+Monoids are interesting objects, but if we ask moreover that every element has an inverse, a whole new world appears, it is the one of groups.
+
+\subsubsection{General theory of groups}
+
 \begin{cdef}{}{group}
     A \cemph{group} \( (G, \cdot, e) \) is a monoid together with a function \( \inv - : G \to G \) that sends \( x \in G \) to \( \inv x \), called the \cemph{inverse} of \( x \), and such that
     \begin{equation*}
@@ -169,7 +172,6 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     \end{equation*}
     A group is \cemph{abelian} if its underlying monoid is abelian, see Definition \ref{def:commutative_monoid}.
 \end{cdef}
-
 
 \begin{crem}{}{notation_group}
     The Remark \ref{rem:notation_monoid} also applies for groups, for instance we will often write \( + \) for the law of an abelian group. Furthermore, we extend this notation to \( - x \) to mean \( \inv x \) in the case where the group is abelian.
@@ -200,10 +202,10 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     What we said previously about monoid, can also be extended to groups. In particular, neutral element is unique.
 \end{crem}
 
-\begin{clem}{}{inverse_unique}
+\begin{clem}{}{inverse_unique_group}
     Let \( G \) be a group, and let \( x \in G \). Suppose we have \( x' \in G \) such that \( x' \cdot x = e \) or \( x \cdot x' = e \), then \( x' = \inv x \).
 \end{clem}
-\begin{lemproof}{inverse_unique}
+\begin{lemproof}{inverse_unique_group}
     Suppose for instance \( x' \cdot x = e \), then multiplying by \( \inv x \) both sides yields
     \begin{equation*}
         x' \cdot x \cdot \inv x = e \cdot \inv x,
@@ -252,6 +254,14 @@ We now dive into the incredible world of morphism of groups. We used the word \t
     Let \( f : G \to H \) be a function between two groups, we say that \( f \) is a \cemph{morphism of groups} if \( f(e_G) = e_H \), for all \( x, y \in G \), \( f(xy) = f(x)f(y) \), and for all \( x \in G \), \( f(\inv x) = \inv {f(x)} \). That is, \( f \) is a function that respect the structure of a group, namely the neutral element, the multiplication, and taking the inverse. 
 \end{cdef}
 
+\begin{cexp}{}{group_morphism_example}
+    \begin{itemize}
+        \item Let \( G \) be a group, let \( 0 \) be the group with one element. There is a unique morphism \( 0 \to G \), and a unique morphism \( G \to 0 \).
+        \item Let \( G \) be a group and \( H \subseteq G \) be a subgroup, then the function \( \iota : H \to G \) that sends \( x \in H \) to itself is a morphism of group.
+        \item Let \( f : \bb Z \to \bb Z_2 \) be the function sending even elements to \( 0 \) and odd elements to \( 1 \). It is a morphism of group. 
+    \end{itemize}
+\end{cexp}
+
 \begin{crem}{}{inj_surj_group}
     As morphism of group are in particular functions, it makes sense to say that a morphism of group is injective, surjective, or bijective. In the last case, we say that \( f \) is an \cemph{isomorphism}. So an isomorphism between two groups is a morphism of group that is bijective, i.e. that is both injective and surjective.
 \end{crem}
@@ -290,5 +300,36 @@ Images and kernels are very convenient object. Knowing them tells us when a morp
     \begin{equation*}
         e_H = f(y) \inv {f(y)} = f(x) \inv {f(y)} = f(x)f(\inv y) = f(x\inv y),
     \end{equation*}
-    so \( x \inv y \in \ker(f) \), and \( \ker(f) = \{ e_G \} \) by hypothesis, this means \( x \inv y = e_G \), so multiplying by \( y \), we find \( x \inv y y = y \), i.e. \( x = y \), and \( f \) is injective.
+    so \( x \inv y \in \ker(f) \), and \( \ker(f) = \{ e_G \} \) by hypothesis, this means \( x \inv y = e_G \), so multiplying by \( y \), we find \( x \inv y y = y \), i.e. \( x = y \), and \( f \) is injective. Next, \( f \) surjective is by definition to say that \( \im(f) = Y \), and finally, an isomorphism is a bijective group morphism, that is an injective and surjective group morphism.
 \end{propproof}
+
+\begin{cexp}{}{surj_inj_example_group}
+    Recall the examples of Example \ref{exp:group_morphism_example}.
+    \begin{itemize}
+        \item Let \( G \) be a group. The map \( 0 \to G \) is injective, and the map \( G \to 0 \) is injective. If \( G \) is not the zero group, then the composition \( G \to 0 \to G \) is neither injective, nor surjective.
+        \item If \( H \subseteq G \) is a subgroup, then the map \( \iota : H \to G \) is injective.
+        \item The map \( f : \bb Z \to \bb Z_2 \) of Example \ref{exp:group_morphism_example} is surjective. 
+    \end{itemize}
+\end{cexp}
+
+\begin{cdef}{}{left_right_coset}
+    Let \( G \) be a group, let \( H \subseteq G \) be a subgroup, and \( x \in G \). We define the \cemph{left coset} of \( H \) with \( x \), to be the set
+    \begin{equation*}
+        x H \defeq \{ x \cdot h \mid h \in H \}.
+    \end{equation*}
+    Similarly, the \cemph{right coset} of \( H \) with \( x \) is
+    \begin{equation*}
+        H x \defeq \{ h \cdot x \mid h \in H \}.
+    \end{equation*}
+\end{cdef}
+
+\subsubsection{Finite group theory}
+
+Armed with those definition, we are ready to specialize ourself to the one of finite groups. 
+\begin{cdef}{}{finite_group}
+    A \cemph{finite group} is a group that is finite set. We call its cardinality the \cemph{order} of the group.
+\end{cdef}
+
+\begin{cex}{}{example_finite_groups}
+    For all \( n \in \bb N \), the groups \( \bb Z_n \) are finite groups of order \( n \). The group with one element is the unique finite group of order \( 1 \). There are no group of order \( 0 \), as such a group would be empty, thus would not have a neutral element.
+\end{cex}
