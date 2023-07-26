@@ -2,6 +2,11 @@
 
 Groups are mathematical structures that arise everywhere. Groups encode symmetries in structures, and symmetries are prevalent in math.  As this class is computer-science oriented, we will first introduce monoids, that are object slightly more general than groups, and that anyone in computer science already encounter. Typically, when we consider the regular expression \( (ab)^* \), we are considering the free monoid on the alphabet \( \{ a, b \} \). 
 
+Before starting, we give a little bit of terminology that will be used throughout this chapter.
+\begin{cdef}{}{closed_subset}
+    Let \( f : X \to X \) be a function. We say that a subset \( A \subseteq X \) is \cemph{closed} under \( f \) if whenever \( a \in A \), \( f(a) \in A \). Also, if we have \( f : X\times X \to X \), and \( A \subseteq X \), we say also that \( A \) is closed under \( f \) if for all \( a, b \in  A \), we have \( f(a, b) \in A \). 
+\end{cdef}
+
 \subsection{Monoids}
 
 \begin{cdef}{}{binary_op}
@@ -175,6 +180,19 @@ Monoids are interesting objects, but if we ask moreover that every element has a
         \item \( (\bb Z, +, 0, -) \) is an abelian group.
         \item \( (\bb R^*, \times, 1, x \mapsto 1/x) \) is an abelian group.
         \item Let \( X \) be a set, call \( \mathrm{Bij}(X) \) the set of all bijective function \( f : X \to X \). This set is a (non-abelian) group with composition. What is the inverse of a function? What is the neutral element? 
+        \item We let \( \bb Z_2 \) to be the set \( \{ 0, 1 \} \), with the binary law being addition modulo 2, so for instance \( 0 + 1 = 1 \), and \( 1 + 1 = 0 \). This is a group in which each element is its own inverse. 
+        \item More generally, we let \( \bb Z_n \) to be the set \( \{ 0, \dots, n-1 \} \) with law being addition mod \( n \), so to compute \( p + q \), we first do it as in \( \bb Z \), and then let \( p + q \) be the reminder of this modulo \( n \).
+        \item Let \( \bb U_n \) be the set of \( n \)th roots of unity, that is
+        \begin{equation*}
+            \bb U_n = \{ \exp(\frac{2\pi k}{n}) \mid k \in \{0, \dots, n - 1\} \},
+        \end{equation*}
+        with law being multiplication. This is a group, which is in fact the same as \( \bb Z_n \), more on this when we will do modular arithmetic.
+        \item Dihedral groups are example of finite groups that are not abelian. The \( n \)th dihedral groups represent the rotational and mirrors symmetries of the regular \( n \)gone, so for instance the third dihedral groups is the symmetries of the equilateral triangle. It has \( 6 \) elements, 
+        \begin{equation*}
+            D_3 \defeq \{ r_0, r_1, r_2, s_0, s_1, s_2 \},    
+        \end{equation*}
+        where \( r_i \) means \textit{rotate the triangle by \( i \times 120^\circ \)}, (so \( r_0 \) is the neutral element) and \( s_i \) means \textit{reflect the triangle along the \( i \)th median}. The law of groups is \textit{doing the symmetry one after another, from the rightmost to the leftmost}, so for instance \( s_2s_1 = r_1 \), as if we take a triangle, reflect it along the first median, then the second median, it amounts to rotating it by \( 120^\circ \). \cemph{TODO : add pictures, it would be better}. Check that this the group law is indeed not commutative.
+        \item If you are interested in non-abelian finite groups, check out the classification of finite simple group. It consist of finding all finite group, that enjoy the property of being \textit{simple} (it does not mean at all that the group is simple, but rather that its subgroups behave in some manageable way). It took humanity fifty years and tens of thousands of pages to prove that we found them all.  
     \end{itemize}    
 \end{cexp}
 
@@ -192,3 +210,85 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     \end{equation*}
     which simplifies to \( x' = \inv x \). 
 \end{lemproof}
+
+\begin{cex}{}{relationships_in_groups}
+    Let \( (G, \cdot, e) \) bea group, and let \( x, y \in G \), prove that we always have the following identities (and remember that they exists):
+    \begin{itemize}
+        \item \( \inv e = e \),
+        \item \( \inv {(xy)} = \inv y \inv x \).
+        \item \( \inv {(\inv x)} = x \).
+    \end{itemize} 
+\end{cex}
+
+\begin{cdef}{}{subgroup}
+    Let \( G \) be a group. A subgroup of \( G \) is a subset \( H \subseteq G \) that is contains the neutral element, is closed under the group operation, and under taking inverses.
+\end{cdef}
+
+In fact, the definition of subgroups contains redundant element, to check that a subset is a subgroup, there is less work that we need to do.
+\begin{clem}{}{subgroup_charac}
+    Let \( G \) be a group, and \( H \subseteq G \). Then \( H \) is a subgroup if and only if it is non-empty, and whenever \( x, y \in H \), we have \( x\cdot\inv y \in H \). 
+\end{clem}
+\begin{lemproof}{subgroup_charac}
+    Suppose \( H \) is a subgroup of \( (G, \cdot, e) \), then it contains the neutral element, so is not empty. If \( x, y \in H \), then by closure under taking the inverse \(  \inv y \in H \), and as \( H \) is closed under the group law, we get \( x \cdot \inv y \in H \). Conversely, as \( H \) is non-empty, we can chose a \( x \in H \), and by hypothesis, \( x \cdot \inv x \in H \), that is \( e \in H \). Now take any \( x \in H \), we have \( e \cdot \inv x \in H \), so \( \inv x = e \cdot \inv x \in H \), so \( H \) is closed under taking inverses. Finally, let \( x, y \in H \), we have by what we just shown that \( \inv y \in H \), now applying the hypothesis with \( x \) and \( \inv y \), we get \( x \cdot \inv {(\inv y)} \in H \), that is, \( x \cdot y \in H \).
+\end{lemproof}
+
+\begin{cexp}{}{some_subgroups}
+    Subgroups are everywhere. 
+    \begin{itemize}
+        \item Let \( n \in \bb Z \), call \( n\bb Z \) the set
+        \begin{equation*}
+            n \bb Z \defeq \{ nk \mid k \in \bb Z \},    
+        \end{equation*}
+        for instance \( 2\bb Z \) is the set of even integers. Then \( n\bb Z \) is a subgroup of \( \bb Z \).
+        \item If \( n \) divides \( p \), then \( p\bb Z \) is a subgroup of \( n\bb Z \) (thus generalizing the previous example, as \( \bb Z = 1\bb Z \))
+        \item The dihedral groups \( D_3 \) of Example \ref{exp:example_groups} has \( \bb Z_3 \) as a subgroup, for instance \( \{ r_0, r_1, r_2 \} \subseteq D_3 \) is a subgroup that is isomorphic to \( \bb Z_3 \).
+    \end{itemize}
+
+\end{cexp}
+
+We now dive into the incredible world of morphism of groups. We used the word \textit{isomorphic} above, it means that two groups are the same, in a very precise and powerful way.
+
+\begin{cdef}{}{morphism_group}
+    Let \( f : G \to H \) be a function between two groups, we say that \( f \) is a \cemph{morphism of groups} if \( f(e_G) = e_H \), for all \( x, y \in G \), \( f(xy) = f(x)f(y) \), and for all \( x \in G \), \( f(\inv x) = \inv {f(x)} \). That is, \( f \) is a function that respect the structure of a group, namely the neutral element, the multiplication, and taking the inverse. 
+\end{cdef}
+
+\begin{crem}{}{inj_surj_group}
+    As morphism of group are in particular functions, it makes sense to say that a morphism of group is injective, surjective, or bijective. In the last case, we say that \( f \) is an \cemph{isomorphism}. So an isomorphism between two groups is a morphism of group that is bijective, i.e. that is both injective and surjective.
+\end{crem}
+
+Like in the case for monoid, we define the kernel and the image. Notice that the definition is the same as Definition \ref{def:kernel_image}.
+\begin{cdef}{}{kernel_image_group}
+    Let \( f : G \to H \) be a morphism of group. The \cemph{kernel} of \( f \) is the set
+    \begin{equation*}
+        \ker(f) \defeq f^{-1}(\{ e_H \}) = \{ x \in X \mid f(x) = e_H \} \subseteq G
+    \end{equation*}
+    and the \cemph{image} of \( f \) to be the set
+    \begin{equation*}
+        \im(f) \defeq \{ f(x) \mid x \in G \} \subseteq H.
+    \end{equation*}
+    (which is the same thing as the set-theoretical image of Definition \ref{def:image_preimage}).
+\end{cdef}
+
+\begin{clem}{}{kernel_image_subgroup}
+    Let \( f : G \to H \) be a morphism of groups. Then \( \ker(f) \) is a subgroup of \( G \), and \( \im(f) \) is a subgroup of \( H \).
+\end{clem}
+\begin{lemproof}{kernel_image_subgroup}
+    We already know that \( \ker(f) \) and \( \im(f) \) are submonoids, according to Lemma \ref{lem:submonoid_kernel_image}. To check that it is a subgroup, it remains to see that they are closed under taking inverses. For that, let \( x \in \ker(f) \), then \( f(\inv x) = \inv {f(x)} \), because \( f \) is a morphism of groups, and by hypothesis, \( f(x) = e_H \), therefore, \( f(\inv x) = \inv {e_H} = e_H \). This proves \( \ker(f) \) is a subgroup of \( G \). Finally, take \( y \in \im(f) \), that is \( y = f(x) \) for some \( x \in G \). We have \( \inv y = \inv {f(x)} = f(\inv x) \), meaning that \( \inv y \in \im(f) \), so \( \im(f) \) is a subgroup of \( H \).
+\end{lemproof}
+
+Images and kernels are very convenient object. Knowing them tells us when a morphism is injective, surjective, or an isomorphism.
+\begin{cprop}{}{inj_surj_iff_groups}
+    Let \( f : G \to H \) be a morphism of groups. Then
+    \begin{itemize}
+        \item \( f \) is injective if and only if \( \ker(f) = \{ e_G \} \);
+        \item \( f \) is surjective if and only if \( \im(f) = H \);
+        \item \( f \) is an isomorphism if and only if \( \ker(f) = \{ e_G \} \) and \( \im(f) = H \).
+    \end{itemize}
+\end{cprop}
+\begin{propproof}{inj_surj_iff_groups}
+    Suppose \( f \) is injective, and let \( x \in \ker(f) \), then \( f(x) = e_H = f(e_G )\), so by injectivity, \( x = e_G \). Conversely, suppose \( \ker(f) = \{ e_G \} \), and take \( x, y \in G \) such that \( f(x) = f(y) \). Multiplying by \( \inv {f(y)} \) both sides, we get
+    \begin{equation*}
+        e_H = f(y) \inv {f(y)} = f(x) \inv {f(y)} = f(x)f(\inv y) = f(x\inv y),
+    \end{equation*}
+    so \( x \inv y \in \ker(f) \), and \( \ker(f) = \{ e_G \} \) by hypothesis, this means \( x \inv y = e_G \), so multiplying by \( y \), we find \( x \inv y y = y \), i.e. \( x = y \), and \( f \) is injective.
+\end{propproof}

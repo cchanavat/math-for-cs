@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1690312125 "/home/clemence/Documents/phd/teaching/math-cs/math-for-cs/main.tex" "main.pdf" "main" 1690312126 0
+["pdflatex"] 1690381944 "/home/clemence/Documents/phd/teaching/math-cs/math-for-cs/main.tex" "main.pdf" "main" 1690381946 0
   "/home/clemence/Documents/phd/teaching/math-cs/math-for-cs/main.tex" 1690295890 1230 4ede1a86c0d63633d564ccef5b19fefc ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -232,17 +232,17 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1680108807 7883585 76348ff3526124cc33ae6e29c6fd25c9 ""
   "/usr/local/texlive/2023/texmf.cnf" 1680108719 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
   "chapters/functions.tex" 1690252266 24078 1f42d9ba7d6a9655eecd203d7769321c ""
-  "chapters/groups.tex" 1690312124 12168 c2c001723ff2c3b74b4f87ae6104d37e ""
+  "chapters/groups.tex" 1690381942 21198 53097444fda8c9d1bf0cf7b74c8210d2 ""
   "chapters/intro.tex" 1690295910 1149 d5f010cf70777f4911b203a4d01fa6bb ""
-  "chapters/logic.tex" 1690295695 8611 4a068e6184fa60b55905a414ec80423f ""
+  "chapters/logic.tex" 1690377700 8673 2a3eae4dde7c613fef33e51c1c343ab8 ""
   "commands.tex" 1690311439 95 485cf0f376cabb24a1747254c177355b ""
   "commands/basics.tex" 1675262217 704 99ec323ba1c7f4e7347994ea2b2c698e ""
   "commands/categories.tex" 1690311439 862 f850f323e6046cd0f458977e6c4d56e2 ""
   "commands/colors.tex" 1690242808 5291 8534b5dd2ac139357e627e8d0f48f656 ""
-  "main.aux" 1690312126 6173 0c5ad744e2e0d752e5bff64f39706ab8 "pdflatex"
-  "main.out" 1690312126 1408 b697b49ae85aafa996e3ad87c9bd1635 "pdflatex"
+  "main.aux" 1690381946 6801 6b2ada276ef4608a8cfd9b9a6a2bd00d "pdflatex"
+  "main.out" 1690381946 1408 b697b49ae85aafa996e3ad87c9bd1635 "pdflatex"
   "main.tex" 1690295890 1230 4ede1a86c0d63633d564ccef5b19fefc ""
-  "main.toc" 1690312126 906 3777488da043a338f187bd9f84ec789e "pdflatex"
+  "main.toc" 1690381946 906 3777488da043a338f187bd9f84ec789e "pdflatex"
   "quiver.sty" 1675448235 1606 ac24526cc82038afe47d6f803f11170f ""
   (generated)
   "main.aux"
