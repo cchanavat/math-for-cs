@@ -323,6 +323,23 @@ Images and kernels are very convenient object. Knowing them tells us when a morp
     \end{equation*}
 \end{cdef}
 
+\begin{cdef}{}{power_element}
+    Let \( x \in G \) be an element of a group. Let \( n \in \bb Z \), we define by induction \( x^n \). If \( n = 0 \), we let \( x^0 = e \). Suppose \( x^n \) have been defined, we define \( x^{n + 1} \) to be \( x^n \cdot x \). Suppose \( n < 0 \), then we define \( x^n = \inv {(x^{-n})} \).
+\end{cdef}
+
+\begin{cex}{}{power_group_law}
+    Check that this definition statisfy the usual laws of powers, that is
+    \begin{itemize}
+        \item \( x^n x^m = x^{n + m} \)
+        \item \( x^{-n} = \inv{(x^n)}\)
+    \end{itemize}
+    Argue that defining \( x^n \) for some \( x \) is in fact the same thing as defining a morphism of group \( \bb Z \to G \) that sends 1 to \( x \).
+\end{cex}
+
+\begin{crem}{}{power_group_law_abelian}
+    If \( G \) is abelian, then according to Remark \ref*{rem:notation_group}, we will often write \( + \) for the group law, and in that case, we will write \( nx \) for \( x^n \), with Exercise \ref{ex:power_group_law} giving for instance \( nx + mx = (n + m)x \), as expected.
+\end{crem}
+
 \subsubsection{Finite group theory}
 
 Armed with those definition, we are ready to specialize ourself to the one of finite groups. 
@@ -331,5 +348,53 @@ Armed with those definition, we are ready to specialize ourself to the one of fi
 \end{cdef}
 
 \begin{cex}{}{example_finite_groups}
-    For all \( n \in \bb N \), the groups \( \bb Z_n \) are finite groups of order \( n \). The group with one element is the unique finite group of order \( 1 \). There are no group of order \( 0 \), as such a group would be empty, thus would not have a neutral element.
+    For all \( n \in \bb N \), the groups \( \bb Z_n \) are finite groups of order \( n \). The group with one element is the unique finite group of order \( 1 \). There are no group of order \( 0 \), as such a group would be empty, thus would not have a neutral element. 
 \end{cex}
+
+\begin{cdef}{}{order_element}
+    Let \( G \) be a group, we call the order of an element \( x \in G \), if it exists, the smallest positive natural number such that \( x^n = e \). 
+\end{cdef}
+
+\begin{clem}{}{order_exists}
+    In a finite group, the order of an element always exists.
+\end{clem}
+\begin{lemproof}{order_exists}
+    Let \( G \) be a finite group, and \( x \in G \). To take the minimal element of a set of natural numbers, we only need to make sure that it is non-empty. That is we want to find some \( p \in \bb N^* \) (the set of natural number greater than 0), such that \( x^p = e \). For that, consider the set 
+    \begin{equation*}
+        X \defeq \{ x^n \mid n \in \bb N^* \}.
+    \end{equation*}
+    It is included in \( G \), so it has to be finite, therefore there exists some \( n \neq m \) such that \( x^n = x^m \) (otherwise the map \( n \mapsto x^n \) would be an injection from \( \bb N \) to \( X \), meaning by Example \ref{exp:fintie_infinite_set_prop} that \( X \) is infinite). Without loss of generality, suppose \( n  m \). Then, multiplying by \( \inv {(x^n)} \) both sides, we get \( e = x^m \inv {(x^n)} = x^{m-n} \) with \( 0 < m - n \). 
+\end{lemproof}
+
+\begin{crem}{}{order_notation}
+    Therefore, as the order of an element is always defined, we define the function
+    \fun \ord G {\bb N} x {\ord(x)}
+    that sends an element to its order, and we extend this notation to groups themselves by letting \( \ord(G) \) be the order of the group \( G \).  
+\end{crem}
+
+The order of an element of a group is related to the order of the group itself, we have that \( \ord(x) \mid \ord(G) \) (\( \mid \) means divides). In order to prove that, we will prove a more general theorem, that is the order of any subgroup of \( G \) divides the order of \( G \). This is known as Lagrange's theorem.
+
+\begin{cdef}{}{index_subgroup}
+    Let \( H \subseteq G \) be a finite group and a subgroup. We define \( [G : H] \), the \cemph{index} of \( H \) in \( G \) to be the cardinality of the (finite) set 
+    \begin{equation*}
+        \{ x H \mid x \in G \}.
+    \end{equation*}
+    That is, the index of a subgroup is its number of distinct left cosets.  
+\end{cdef}
+
+\begin{cthm}{}{lagrange_group}
+    Let \( G \) be a finite group and and \( H \subseteq G \) be a subgroup. We have
+    \begin{equation*}
+        \ord(G) = [G : H]\ord(H).
+    \end{equation*} 
+    In particular the order of \( H \) divides the order of \( G \).
+\end{cthm}
+\begin{thmproof}{lagrange_group}
+    We define the binary relation \( \sim \) on \( G \) by letting
+    \begin{equation*}
+        x \sim y \iff \inv y x \in H.
+    \end{equation*}
+    We prove that it is an equivalence relation. It is reflexive, as \( e = x\inv x \in H \). If \( x \sim y \), then \( x\inv y \in H \), so (\( H \) is a subgroup), \( \inv {(\inv y x)} \in H \), that is, \( y \inv x \in H \), meaning that \( y \sim x \), hence the relation is symmetric. Finally, if \( x \sim y \) and \( y \sim z \), then \( \inv y x \in H \) and \( \inv z y \in H \), so \( \inv z y \inv y x \in H \), that is \( \inv z x \in H \), i.e. \( x \sim z \). This proves \( \sim \) is an equivalence relation. We denote by \( [x] \) the equivalence class of \( x \) under \( \sim \). We prove that in fact \( [x] = xH \). For that, let \( y \in [x] \), then \( x \sim y \), so \( y \sim x \) that is \( \inv x y \in H \), which is to say that there exists some \( h \in H \) such that \( \inv x y = h \), that we can rewrite to \( y = x h \), so \( y \in xH \). Conversely, if \( y \in xH \), then \( y = xh \) for some \( h \in H \), so \( \inv x y \in H \), i.e \( y \in [x] \). The equivalence classes of \( \sim \) are thus precisely the left cosets of \( H \).
+
+    We now prove that all equivalence classes have the same cardinality, equal to the order of \( H \). For that, we let \( x \in G \), and  by Example \ref{exp:fintie_infinite_set_prop}, it suffices to establish a bijection \( H \to xH \). We construct such function \( f \) by sending \( h \in H \) to \( f(h) = x h \). We see that it is a bijection by considering \( g : xH \to H \) sending any element 
+\end{thmproof}

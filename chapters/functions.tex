@@ -343,6 +343,14 @@ The next lemma is very important. However, it does not really make sense to prov
 \end{cdef}
 
 
+\begin{cexp}{}{fintie_infinite_set_prop}
+    Let \( X, Y \) be sets. 
+    \begin{itemize}
+        \item If \( X \) is finite and there is a surjection \( X \to Y \), then \( Y \) is finite.
+        \item If \( X \) is infinite and there is an injection \( X \to Y \), then \( Y \) is infinite.
+        \item If there is a bijection \( X \to Y \), then \( X \) is finite if and only if \( Y \) is finite, and moreover in that case, the cardinality of \( X \) is the one of \( Y \).
+    \end{itemize}  
+\end{cexp}
 \subsection{Equivalence relations}
 
 Sometimes we have a set, and we would like to make things inside it \textit{more} equal to each other. For instance, let us take the set \( \bb N \). So far, if we take \( n, m \in \bb N \), then \( m = n \) if they are the same number. We would like to say that all even number are equal to each other, while all odd numbers are also equal to each other. The resulting set would then be a set with two elements, for each parity. One element would represent all the even numbers, and the other one all the odd number. There is a very general way to do that called equivalence relation. We introduce it here because equivalence relations are pervasive in mathematics, and we will see them many times during this class. They are a little bit weird to talk about, and to define functions on them can be counter intuitive. 
