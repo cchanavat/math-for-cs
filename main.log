@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  27 JUL 2023 10:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  27 JUL 2023 15:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -551,4 +551,379 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \@linkdim=\dimen279
 \Hy@linkcounter=\count314
 \Hy@pagecounter=\count315
- (/usr/local/texlive/2023/texmf-dist/tex/late
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count316
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4425.
+\c@Hy@tempcnt=\count317
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen280
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count318
+\Field@Width=\dimen281
+\Fld@charsize=\dimen282
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count319
+\c@Item=\count320
+\c@Hfootnote=\count321
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count322
+\c@bookmark@seq@number=\count323
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip58
+) (./quiver.sty
+Package: quiver 2021/01/11 quiver
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen283
+\pgfdecoratedremainingdistance=\dimen284
+\pgfdecoratedinputsegmentcompleteddistance=\dimen285
+\pgfdecoratedinputsegmentremainingdistance=\dimen286
+\pgf@decorate@distancetomove=\dimen287
+\pgf@decorate@repeatstate=\count324
+\pgfdecorationsegmentamplitude=\dimen288
+\pgfdecorationsegmentlength=\dimen289
+)
+\tikz@lib@dec@box=\box80
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/03/12 v3.6j Customizing captions (AR)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
+\caption@tempdima=\dimen290
+\captionmargin=\dimen291
+\caption@leftmargin=\dimen292
+\caption@rightmargin=\dimen293
+\caption@width=\dimen294
+\caption@indent=\dimen295
+\caption@parindent=\dimen296
+\caption@hangindent=\dimen297
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count325
+\c@continuedfloat=\count326
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 239.
+\c@subfigure=\count327
+Package caption Info: New subtype `subtable' on input line 239.
+\c@subtable=\count328
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/bussproofs/bussproofs.sty
+Proof Tree (bussproofs) style macros. Version 1.1.
+\theLevel=\count329
+\myMaxLevel=\count330
+\myBoxA=\box81
+\myBoxB=\box82
+\myBoxC=\box83
+\myBoxD=\box84
+\myBoxLL=\box85
+\myBoxRL=\box86
+\thisAboveSkip=\dimen298
+\thisBelowSkip=\dimen299
+\newScoreStart=\dimen300
+\newScoreEnd=\dimen301
+\newCenter=\dimen302
+\displace=\dimen303
+\leftLowerAmt=\dimen304
+\rightLowerAmt=\dimen305
+\scoreHeight=\dimen306
+\scoreDepth=\dimen307
+\htLbox=\dimen308
+\htRbox=\dimen309
+\htRRbox=\dimen310
+\htRRRbox=\dimen311
+\htAbox=\dimen312
+\htCbox=\dimen313
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
+\c@tracingmulticols=\count331
+\mult@box=\box87
+\multicol@leftmargin=\dimen314
+\c@unbalance=\count332
+\c@collectmore=\count333
+\doublecol@number=\count334
+\multicoltolerance=\count335
+\multicolpretolerance=\count336
+\full@width=\dimen315
+\page@free=\dimen316
+\premulticols=\dimen317
+\postmulticols=\dimen318
+\multicolsep=\skip59
+\multicolbaselineskip=\skip60
+\partial@page=\box88
+\last@line=\box89
+\maxbalancingoverflow=\dimen319
+\mult@rightbox=\box90
+\mult@grightbox=\box91
+\mult@firstbox=\box92
+\mult@gfirstbox=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\@tempa=\box127
+\@tempa=\box128
+\@tempa=\box129
+\c@minrows=\count337
+\c@columnbadness=\count338
+\c@finalcolumnbadness=\count339
+\last@try=\dimen320
+\multicolovershoot=\dimen321
+\multicolundershoot=\dimen322
+\mult@nat@firstbox=\box130
+\colbreak@box=\box131
+\mc@col@check@num=\count340
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/paralist/paralist.sty
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip61
+\plpartopsep=\skip62
+\plitemsep=\skip63
+\plparsep=\skip64
+\pl@lab=\toks46
+) (./commands/basics.tex
+\c@definition=\count341
+\c@theorem=\count342
+\c@axiom=\count343
+\c@claim=\count344
+\c@remark=\count345
+) (./commands/categories.tex) (./commands/colors.tex
+\c@main_counter=\count346
+\c@tcb@cnt@cex=\count347
+) (./commands.tex)
+LaTeX Font Info:    Trying to load font information for OT1+mlmr on input line 49.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ot1mlmr.fd
+File: ot1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count348
+\l__pdf_internal_box=\box132
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=731.23584pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count349
+\scratchdimen=\dimen323
+\scratchbox=\box133
+\nofMPsegments=\count350
+\nofMParguments=\count351
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count352
+\MPscratchDim=\dimen324
+\MPnumerator=\count353
+\makeMPintoPDFobject=\count354
+\everyMPtoPDFconversion=\toks48
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+\c@lstlisting=\count355
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks49
+\inpenc@posthook=\toks50
+)
+Package hyperref Info: Link coloring OFF on input line 49.
+ (./main.out) (./main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 52.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
+File: omlmlmm.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 52.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/omsmlmsy.fd
+File: omsmlmsy.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 52.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/omxmlmex.fd
+File: omxmlmex.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <12> on input line 52.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <8> on input line 52.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <6> on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./main.toc
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <10> on input line 3.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <5> on input line 3.
+)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ (./chapters/intro.tex) (./chapters/logic.tex [1
+
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] [3]
+LaTeX Font Info:    Trying to load font information for TS1+mlmr on input line 169.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
+File: ts1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
+)) [4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./chapters/functions.tex [5] [6] [7] [8] [9] [10] [11{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]) [12] (./chapters/groups.tex [13] [14] [15] [16] [17] [18] [19]) [20] (./main.aux)
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: FC69F997F9D5AB3197BE75692D85AE2D;1774.
+ ) 
+Here is how much of TeX's memory you used:
+ 31725 strings out of 476025
+ 652645 string characters out of 5790023
+ 1882388 words of memory out of 5000000
+ 51458 multiletter control sequences out of 15000+600000
+ 555910 words of font info for 70 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 101i,10n,104p,1336b,1197s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (20 pages, 298350 bytes).
+PDF statistics:
+ 468 PDF objects out of 1000 (max. 8388607)
+ 389 compressed objects within 4 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 269 words of extra memory for PDF output out of 10000 (max. 10000000)
+

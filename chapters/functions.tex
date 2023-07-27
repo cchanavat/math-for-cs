@@ -416,6 +416,34 @@ Sometimes we have a set, and we would like to make things inside it \textit{more
     Define \( \sim \) on the natural number by letting \( n \sim m \) if and only if \( m \) and \( n \) have same parity. Show that this is an equivalence relation, and that the set \( \bb N / \sim \) has two elements. Show that the canonical projection \( \bb N \to \{ [0], [1] \} \) acts as the "mod 2" function, by seeing \( [0] \) as \( 0 \), and \( [1] \) as \( 1 \). This idea will be further generalized in the lesson on modular arithmetic.
 \end{cex}
 
+Equivalence relations on a set \( X \) are precisely partitions of \( X \). A partition of a set is a way of dividing it into disjoint pieces.
+\begin{cdef}{}{partition_set}
+    Let \( X \) be a set. A partition of \( X \) is a collection of subsets \( {U_i}_{i\in I} \) of \( X \), such that \( \bigcup_{i \in I} U_i = X  \), and if \( i \neq j \), \( U_i \cap U_j = \emptyset \). 
+\end{cdef}
+
+\begin{cprop}{}{partion_equivalence}
+    Let \( X \) be a set. There is a bijection between the set of all equivalence relations on \( X \), and the partition of \( X \), given by the function that sends an equivalence relation to the set of all its equivalence classes.
+\end{cprop}
+\begin{propproof}{partion_equivalence}
+    Let \( \sim \) be an equivalence relation on \( X \). We let \( \cl(X) \) be the set of equivalence classes of \( \sim \), then \( \bigcup_{C \in \cl(X)} C = X\), and moreover, suppose \( [x] \neq [x'] \), and assume we have an \( y \in [x] \cap [x'] \), then by definition \( x \sim y \) and \( x' \sim y \), so by symmetry and transitivity, \( x \sim x' \), so by Lemma \ref{lem:equivalence_equal}, \( [x] = [x'] \), contradiction so \( [x] \cap [x'] = \emptyset \), hence the elements of \( \cl(X) \) is a partition of \( X \). Conversely, suppose \( {U_i}_{i \in I} \) is a partition of \( X \). Define \( \sim \) by
+    \begin{equation*}
+        x \sim y \iff \exists i \in I, x \in U_i \land y \in U_i. 
+    \end{equation*}
+    Let \( x \in X \), as \( \bigcup_i U_i = X \), there exists some \( i \) such that \( x \in U_i \), so \( x \sim x \). The relation \( \sim \) is also seen to be symmetric, and for transitivity, suppose \( x \sim y \) and \( y \sim z \), then there are some \( i, j \) such that \( x, y \in U_i \) and \( y, z \in U_j \). In particular \( y \in U_i \cap U_j \), so \( U_i \cap U_j \neq \emptyset \), hence by contrapositive, \( i = j \), therefore \( x, z \in U_i \) meaning \( x \sim z \).
+\end{propproof}
+
+We give the following without prove (but it is an exercise to prove it, try first to do it for a two element partition).
+\begin{cprop}{}{formula_cardinality_partition}
+    Let \( X \) be a finite set, and let \( {U_i}_{i\in I} \) be a partition of \( X \). Then
+    \begin{equation*}
+        |X| = \sum\limits_{i \in I} |U_i|.
+    \end{equation*}
+\end{cprop}
+% \begin{propproof}{formula_cardinality_partition}
+%     We prove the formula by induction on the size of the partition. If \( {U_i}_{i\in I} \) has cardinality one, then \( {U_i}_{i\in I} = { X } \), and the formula is saying \( |X| = |X| \), which is true. Suppose we established the result up to some \( n \). Let \(  \)
+%     Let \( n \) be the cardinality of \( X \), and \( n_i \) be the cardinality of \( U_i \). 
+% \end{propproof}
+
 We conclude by a canonical result that will appear here and there under similar forms during this course.
 \begin{cthm}{}{epi_mono_set}
     Let \( f : X \to Y \) be a function. There exists two (unique) functions \( m, p \) such that \( p \) is surjective, \( m \) is injective, and \( f = m \circ p \). 
