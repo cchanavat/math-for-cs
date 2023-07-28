@@ -1,4 +1,4 @@
-\section{Groups}
+\section{Group theory}
 
 Groups are mathematical structures that arise everywhere. Groups encode symmetries in structures, and symmetries are prevalent in math.  As this class is computer-science oriented, we will first introduce monoids, that are object slightly more general than groups, and that anyone in computer science already encounter. Typically, when we consider the regular expression \( (ab)^* \), we are considering the free monoid on the alphabet \( \{ a, b \} \). 
 
@@ -37,16 +37,16 @@ Before starting, we give a little bit of terminology that will be used throughou
     \end{enumerate}
 \end{cdef}
 
-\begin{cexp}{}{monoid_R_N}
-    Prove that \( (\bb N, +) \) is a monoid. Is \( (\bb R, \times) \) a monoid? Prove that \( (\bb R^*, \times) \) is a monoid, where by \( \bb R^* \), we mean the set of real number with \( 0 \) removed. What is its neutral element?
-\end{cexp}
+\begin{cex}{}{monoid_R_N}
+    Prove that \( (\bb N, +) \) is a monoid. Is \( (\bb R, \times) \) a monoid? Prove that \( (\bb R^*, \times) \) is a monoid, where by \( \bb R^* \), we mean the set of real numbers with \( 0 \) removed. What is its neutral element?
+\end{cex}
 
 \begin{cexp}{}{trivial_monoid}
     A very important monoid is the set with one element \( \{ e \} \). The binary law is (necessarily) defined by \( e \cdot e = e \), and the neutral element is (necessarily) \( e \). Check that this is indeed a monoid.
 \end{cexp}
 
 \begin{clem}{}{unique_neutral}
-    Neutral elements are unique, that is in a monoid \( (X, \cdot, e) \), if there is an element \( e' \in X \) such that 
+    Neutral elements are unique, that is, in a monoid \( (X, \cdot, e) \), if there is an element \( e' \in X \) such that 
     \begin{equation*}
         \forall x \in X, e' \cdot x = x = x \cdot e',
     \end{equation*}
@@ -129,7 +129,7 @@ The kernel and the image have in fact a structure of monoid, so when one is give
     \begin{equation*}
         (x, y) \cdot (x', y') \defeq (x\cdot x', y \cdot y').
     \end{equation*}
-    More generally, if \( (X_i)_{i\in I} \) is a family of monoids, we define the product \( \prod_{i \in I} X_i \) to be the monoid whose underlying set is \( \prod_{i \in I} X_i \), whose neutral element is \( (e_{X_i})_{i \in I} \), and whose law is defined pointwise with
+    More generally, if \( (X_i)_{i\in I} \) is a family of monoids, we define the product \( \prod_{i \in I} X_i \) to be the monoid whose underlying set is \( \prod_{i \in I} X_i \), whose neutral element is \( (e_{X_i})_{i \in I} \), and whose law is defined pointwise by
     \begin{equation*}
         (x_i)_{i \in I} \cdot (x'_i)_{i \in Y} \defeq (x_i \cdot x'_i)_{i \in I}.
     \end{equation*}
@@ -170,7 +170,7 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     \begin{equation*}
         \forall x \in G, x \cdot \inv x = e = \inv x \cdot x.
     \end{equation*}
-    A group is \cemph{abelian} if its underlying monoid is abelian, see Definition \ref{def:commutative_monoid}.
+    A group is \cemph{abelian} if its underlying monoid is commutative, see Definition \ref{def:commutative_monoid}.
 \end{cdef}
 
 \begin{crem}{}{notation_group}
@@ -199,7 +199,7 @@ Monoids are interesting objects, but if we ask moreover that every element has a
 \end{cexp}
 
 \begin{crem}{}{monoid_applies_group}
-    What we said previously about monoid, can also be extended to groups. In particular, neutral element is unique.
+    What we said previously about monoid, can often be extended to groups. In particular, the neutral element is unique.
 \end{crem}
 
 \begin{clem}{}{inverse_unique_group}
@@ -226,7 +226,7 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     Let \( G \) be a group. A subgroup of \( G \) is a subset \( H \subseteq G \) that is contains the neutral element, is closed under the group operation, and under taking inverses.
 \end{cdef}
 
-In fact, the definition of subgroups contains redundant element, to check that a subset is a subgroup, there is less work that we need to do.
+In fact, the definition of subgroups contains redundant parts, to check that a subset is a subgroup, there is less work that we need to do.
 \begin{clem}{}{subgroup_charac}
     Let \( G \) be a group, and \( H \subseteq G \). Then \( H \) is a subgroup if and only if it is non-empty, and whenever \( x, y \in H \), we have \( x\cdot\inv y \in H \). 
 \end{clem}
@@ -267,16 +267,16 @@ We now dive into the world of morphism of groups. We used the word \textit{isomo
 \end{cexp}
 
 \begin{crem}{}{inj_surj_group}
-    As morphism of group are in particular functions, it makes sense to say that a morphism of group is injective, surjective, or bijective. In the last case, we say that \( f \) is an \cemph{isomorphism}. So an isomorphism between two groups is a morphism of group that is bijective, i.e. that is both injective and surjective.
+    As morphism of group are in particular functions, it makes sense to say that a morphism of group is injective, surjective, or bijective. In the last case, we say that \( f \) is an \cemph{isomorphism}. So an isomorphism between two groups is a morphism of group that is bijective, i.e. that is both injective and surjective. If \( f : G \to H \) is an isomorphism of groups, we write \( G \simeq H \), and it means that the two groups are the same, up to renaming the elements. Any group-theoretic thing that one can say about the group will be true for any isomorphic group.
 \end{crem}
 
-Like in the case for monoid, we define the kernel and the image. Notice that the definition is the same as Definition \ref{def:kernel_image}.
+Like in the case for monoids, we define the kernel and the image. Notice that the definition is the same as Definition \ref{def:kernel_image}.
 \begin{cdef}{}{kernel_image_group}
     Let \( f : G \to H \) be a morphism of group. The \cemph{kernel} of \( f \) is the set
     \begin{equation*}
         \ker(f) \defeq f^{-1}(\{ e_H \}) = \{ x \in X \mid f(x) = e_H \} \subseteq G
     \end{equation*}
-    and the \cemph{image} of \( f \) to be the set
+    and the \cemph{image} of \( f \) is the set
     \begin{equation*}
         \im(f) \defeq \{ f(x) \mid x \in G \} \subseteq H.
     \end{equation*}
@@ -335,6 +335,7 @@ Images and kernels are very convenient object. Knowing them tells us when a morp
     Check that this definition satisfies the usual laws of powers, that is
     \begin{itemize}
         \item \( x^n x^m = x^{n + m} \)
+        \item \( (x^n)^m = x^{nm} \)
         \item \( x^{-n} = \inv{(x^n)}\)
     \end{itemize}
     Argue that defining \( x^n \) for some \( x \) is in fact the same thing as defining a morphism of group \( \bb Z \to G \) that sends 1 to \( x \).
@@ -427,9 +428,118 @@ The order of an element of a group is related to the order of the group itself, 
     \end{equation*}
 \end{thmproof}
 
+\begin{clem}{}{cyclic_generated}
+    Let \( x \in G \) be an element of a group of order \( n \), then \( \langle x \rangle \), the subgroup generated by \( x \), is 
+    \begin{equation*}
+        \{ e, x, x^2, \cdots, x^{n - 1} \}.
+    \end{equation*}
+    In particular, \( \ord(x) = \ord(\langle x \rangle) \).
+\end{clem}
+\begin{lemproof}{cyclic_generated}
+    First, we have \( \{ e, x, x^2, \cdots, x^{n - 1} \} \subseteq \langle x \rangle \), as \( e \in \langle x \rangle \) as it is a subgroup, and \( x \in \langle x \rangle \) by definition of the subgroup generated, thus, by closure under the group operation, also \( x^n \in \langle x \rangle \). For the converse, it suffices to check that \( \{ e, x, x^2, \cdots, x^{n - 1} \} \) is indeed a subgroup. Indeed, if it is the case, it would be a group containing \( x \), so would contain \( \langle x \rangle \). 
+    
+    Call \( X = \{ e, x, x^2, \cdots, x^{n - 1} \} \), let \( x^a, x^b \in X \), and do the euclidean division \( a - b = qn + r \), with \( 0 \le r < n \). We then have, using \ref{ex:power_group_law},
+    \begin{equation*}
+        x^a \inv {(x^b)} = x^{a - b} = x^{qn + r} = x^{qn}x^r = (x^n)^qx^r = e^qx^r = x^r.
+    \end{equation*}      
+    As \( 0 \le r \le n \), we indeed have \( x^a \inv {(x^b)} = x^r \in X \). This proves \( X \) is a subgroup.
+\end{lemproof}
+
 \begin{ccor}{}{order_element_divides}
     Let \( G \) be a finite group, and let \( x \in G \), then \( \ord(x) \mid \ord(G) \).
 \end{ccor}
 \begin{corproof}{order_element_divides}
-    Let \( \langle x \rangle \) be 
+    Let \( \langle x \rangle \) be the subgroup generated by \( \{ x \} \), and let \( n = \ord(x) \). We apply Theorem \ref{thm:lagrange_group} and get \( \ord(\langle x \rangle) \) divides \( \ord(G) \), so by Lemma \ref{lem:cyclic_generated}, \( \ord (\langle x \rangle) = \ord(x) = n \) divides \( \ord(G) \).   
 \end{corproof}
+
+\begin{cex}{}{no_subgroup_trivial}
+    Let \( G \) be a group. We say that a subgroup is a \cemph{trivial subgroup} if it is \( \{ e_G \} \) or \( G \) itself. Prove that a group has only trivial subgroups if and only if \( G \simeq \bb Z_p \) for some prime number \( p \). Deduce that if \( G \) and \( H \) are two groups of order \( p \) a prime number, then \( G \simeq H \). 
+\end{cex}
+
+\begin{cex}{}{order_2_abelian}
+    Let \( G \) be a group such that for all \( x \in G \), \( \ord(x) = 2 \) or \( x = e \). Prove that \( G \) is abelian.    
+\end{cex}
+
+\begin{cex}{}{is_neutral_divides_order}
+    Let \( G \) be a finite group, and let \( x \in G \). Prove that \( x^k = e \) if and only if \( \ord(k) \) divides \( k \).
+\end{cex}
+
+\begin{cex}{}{injection_preserves_order}
+    Let \( f : G \to H \) be a morphism of group. Prove that for all \( x \in G \), \( \ord(f(x)) \mid \ord(x) \). Prove that if \( f \) is moreover injective, then \(  \ord(f(x)) = \ord(x) \).
+\end{cex}
+
+\subsubsection{Cyclic groups}
+
+Previously, we used several times the idea that the set \( \{ 0, \dots, n - 1 \} \), with the addition modulo \( n \), was a group. For instance, this fact is hidden in the proof of Lemma \ref{lem:cyclic_generated}. We also introduced them without real proof in Example \ref{exp:example_groups}. We now construct these group very formally, using the idea of quotient groups, that we only develop in the case of abelian groups, although it is completely possible to make it more general by introducing \textit{normal} subgroups. Then, we use group theoretical tools to generalize the fact that if \( p \) is prime, and \( 1 \le a < p \), then \( a^p \) is equal to 1 modulo \( n \). Recall that the RSA algorithm is based on this fact.
+
+\begin{crem}{}{coset_abelian}
+    Let \( A \) be an abelian group, and \( B \subseteq A \) be a subgroup. We write \( a + B \) for the left coset, and we notice that, as \( A \) is abelian (this is false in general), the right coset \( B + a \) is equal to the left coset \( a + B \). Thus for abelian groups, we will speak of cosets, without specifying left or right.     
+\end{crem}
+
+\begin{cdef}{}{quotient_group}
+    Let \( A \) be an abelian group, and \( B \subseteq A \) be a subgroup. We define \( A / B \) to be the set of cosets \( \{ a + B \mid a \in A \} \). We also define the function \( [-] : A \to A / B \) sending \( a \) to \( [a] = a + B \). 
+\end{cdef}
+
+\begin{clem}{}{quotient_group_group}
+    The set \( A / B \) is a group, called the \cemph{quotient group}, whose laws are induced by the one of \( A \), and the map \( [-] : A \to A / B \) is a group morphism, called the canonical projection. More precisely, the laws of the quotient group are such that
+    \begin{itemize}
+        \item The neutral element is \( [0] = B \),
+        \item The inverse is defined with \( - [a] = [- a] \), 
+        \item The addition is defined by \( [a] + [a'] = [a + a'] \).
+    \end{itemize}
+\end{clem}
+\begin{lemproof}{quotient_group_group}
+     We need to prove that the definition of the laws do not depend on the representative we chose. Suppose \( [a] = [a'] \), then we show that \( [-a] = [- a'] \), but this follows from the definition of a coset. Indeed, if \( c \in [- a] \), then \( c = - a + b = - (a - b) = - (a + (- b)) \), so \( -c \in [a] \), thus \( -c \in [a'] \), hence by a similar reasoning, \( c \in [- a'] \). We thus have \( [-a] \subseteq [- a'] \), and as the role of \( a \) and \( a' \) is symmetrical, it implies \( [-a] = [- a'] \). Next, suppose \( [a] = [a'] \), we aim to show that \( [a + c] = [a' + c] \). We have (crucially, we use here commutativity) \( a + c + B = c + a + B = c + (a + B) = c + (a' + B) = a' + c + B = [a' + c] \). Finally, one checks that \( [0] \) is indeed the neutral element. 
+\end{lemproof}
+
+\begin{clem}{}{kernel_projection_quotient}
+    The kernel of the canonical projection \( A \to A / B \) is \( B \).    
+\end{clem}
+\begin{lemproof}{kernel_projection_quotient}
+    Suppose \( [a] = [0] \), then \( a \in [0] = 0 + B = B \). Conversely, for all \( b \in B \), \( b + B = B \), so \( [b] = [0] \).
+\end{lemproof}
+
+The next proposition allows us to define maps out of a quotient. It is very reminiscent of Remark \ref{rem:function_out_quotient}, because we are in fact doing the same thing, just in another mathematical realm. Remark \ref{rem:function_out_quotient} happened for quotients on sets, and the next result is for quotients on abelian groups. The underlying construction is however the same, and if you are interested by such things, you should learn about \textit{category theory}.
+
+\begin{cprop}{}{universal_prop_quotient_group}
+    Let \( A, C \) be abelian groups, let \( B \subseteq A \) be a subgroup. Then for all group morphism \( f : A \to C \) such that \( f(b) = 0 \) for all \( B \) in \( C \), there exists a unique group morphism \( \bar f : A / B \to C \) such that \( f(a) = \bar f([a]) \). 
+\end{cprop}
+\begin{propproof}{universal_prop_quotient_group}
+    We let \( \bar f : A / B \to C \) defined by \( \bar f ([a]) = f(a) \). Suppose \( [a] = [a'] \), then \( a + b = a' + b' \) for some \( b, b' \in B \), thus \( a - a' = b' - b \in B \). Then
+    \begin{equation*}
+        \bar f ([a]) - \bar f ([a']) = f(a) - f(a') = f(a - a') = 0,
+    \end{equation*}
+    as \( a - a' \in B \), and \( f \) sends elements of \( B \) to \( 0 \) by hypothesis. This proves that \( f \) is unique and well defined. To show that this is a morphism of group, we see that \( \bar f([0]) = f(0) = 0 \), and
+    \begin{equation*}
+        \bar f([a + a']) = f(a + a') = f(a) + f(a') = \bar f([a]) + \bar f([a']). 
+    \end{equation*}
+\end{propproof}
+
+The next theorem is the analogue for groups of Theorem \ref{thm:epi_mono_set}.
+\begin{cthm}{First isomorphism theorem}{first_isomorphism_theorem_group}
+    Let \( f : A \to B \) be a morphism of abelian groups, then
+    \begin{equation*}
+        A / \ker(f) \simeq \im(f),
+    \end{equation*}
+    where the isomorphism is given by \( \bar f \) of Proposition \ref{prop:universal_prop_quotient_group}.
+\end{cthm}
+\begin{thmproof}{first_isomorphism_theorem_group}
+    Suppose \( \bar f([a]) = 0 \), then \( f(a) = 0 \), so \( a \in \ker(f) \), thus \( [a] = [0] \). This proves \( \bar f \) is injective. Let \( y \in \im(f) \), then \( y = f(a) \) for some \( a \in A \), hence \( \bar f([a]) = f(a) = y \). This proves \( \bar f \) is surjective. Thus \( \bar f : A / \ker(f) \to \im(f) \) is an isomorphism. 
+\end{thmproof}
+
+After those abstract consideration, we define more concrete objects, called the cyclic group. We already saw them, and we also see them every day. The twenty-four hours of the days are isomorphic the \( \bb Z_24 \), the twenty-fourth cyclic group.
+
+\begin{cdef}{}{cyclic_group}
+    Let \( n \in \bb N \), the \cemph{\( n \)th cyclic group} \( \bb Z_n \) is the quotient \( \bb Z / n\bb Z \).
+\end{cdef}
+
+\begin{crem}{}{zeroth_cyclic}
+    If \( n = 0 \), then \( n\bb Z = \{ 0 \} \), so \( \bb Z_0 = \bb Z / \{0 \} \simeq \bb Z \), and if \( n = 1 \), then \( 1\bb Z = \bb Z \), so \( \bb Z_1 \simeq \{ 0 \} \). Therefore, we are mostly interested with cyclic groups for \( n \geq 2 \). 
+\end{crem}
+
+Let \( n \geq 2 \). We can effectively work with this quotient in the following way. 
+% Let \( k \in \bb Z \) be any integer, form the set 
+% \begin{equation*}
+%     K \defeq \{ k, k + 1, \dots, k + (n - 1) \},
+% \end{equation*}
+% and create the bijection \(  \)
