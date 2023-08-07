@@ -13,3 +13,4 @@
 \contentsline {subsubsection}{\numberline {4.2.1}General theory of groups}{15}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Finite group theory}{19}{subsubsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Cyclic groups}{21}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Application to arithmetic}{23}{subsection.4.3}%

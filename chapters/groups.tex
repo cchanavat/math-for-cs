@@ -1,6 +1,6 @@
 \section{Group theory}
 
-Groups are mathematical structures that arise everywhere. Groups encode symmetries in structures, and symmetries are prevalent in math.  As this class is computer-science oriented, we will first introduce monoids, that are object slightly more general than groups, and that anyone in computer science already encounter. Typically, when we consider the regular expression \( (ab)^* \), we are considering the free monoid on the alphabet \( \{ a, b \} \). 
+Groups are mathematical structures that arise everywhere. Groups encode symmetries in structures, and symmetries are prevalent in math. As this class is computer-science oriented, we will first introduce monoids, which are objects slightly more general than groups, and that anyone in computer science already encounter. Typically, when we consider the regular expression \( (ab)^* \), we are considering the free monoid on the alphabet \( \{ a, b \} \). 
 
 Before starting, we give a little bit of terminology that will be used throughout this chapter.
 \begin{cdef}{}{closed_subset}
@@ -68,7 +68,7 @@ Before starting, we give a little bit of terminology that will be used throughou
 \end{cdef}
 
 \begin{crem}{}{notation_monoid}
-    Here are some common abuse of notation that we do in group theory. We say that \textit{\( X \) is a monoid}, where we are supposed to say \( (X, \cdot, e) \) is a monoid, the data of the binary law and the neutral element being part of the definition. As they are often explicit from the context, we tend to avoid it, and say simply that \( X \) is a monoid.
+    Here are some common abuse of notation that we do in group theory. We say that \textit{\( X \) is a monoid}, where we are supposed to say \( (X, \cdot, e) \) is a monoid, the data of the binary law and the neutral element being part of the definition. As they are often implicit from the context, we tend to avoid it, and say simply that \( X \) is a monoid.
 
     More often than not, when the monoid is commutative, we write its law \( + \), and \( 0 \) its neutral element. Beware that these \( + \) and \( 0 \) have a priori nothing to do with the \( + \) and \( 0 \) of the natural numbers. It is just that this notation helps us remember that the monoid is commutative, as is the monoid \( (\bb N, +, 0) \).
     
@@ -84,7 +84,7 @@ Before starting, we give a little bit of terminology that will be used throughou
     \begin{equation*}
         f(e_X) = e_Y,
     \end{equation*}
-    that is \( f \) preserves the monoid laws, and it sends the neutral element to the neutral element. 
+    that is \( f \) preserves the monoid law, and it sends the neutral element to the neutral element. 
 \end{cdef}
 
 \begin{cex}{}{example_mph_monoid}
@@ -109,7 +109,7 @@ Before starting, we give a little bit of terminology that will be used throughou
     (which is the same thing as the set-theoretical image of Definition \ref{def:image_preimage}).
 \end{cdef}
 
-The kernel and the image have in fact a structure of monoid, so when one is given with a morphism of monoid, one get two submonoids for free.
+The kernel and the image have in fact a structure of monoid, so when one has a morphism of monoid, one get two submonoids for free.
 
 \begin{clem}{}{submonoid_kernel_image}
     Let \( f : X \to Y  \) be a morphism of monoid. Then \( \ker(f) \) is a submonoid of \( X \), and \( \im(f) \) is a submonoid of \( Y \).
@@ -170,7 +170,7 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     \begin{equation*}
         \forall x \in G, x \cdot \inv x = e = \inv x \cdot x.
     \end{equation*}
-    A group is \cemph{abelian} if its underlying monoid is commutative, see Definition \ref{def:commutative_monoid}.
+    A group is \cemph{abelian} (or commutative) if its underlying monoid is commutative, see Definition \ref{def:commutative_monoid}.
 \end{cdef}
 
 \begin{crem}{}{notation_group}
@@ -183,18 +183,18 @@ Monoids are interesting objects, but if we ask moreover that every element has a
         \item \( (\bb R^*, \times, 1, x \mapsto 1/x) \) is an abelian group.
         \item Let \( X \) be a set, call \( \mathrm{Bij}(X) \) the set of all bijective function \( f : X \to X \). This set is a (non-abelian) group with composition. What is the inverse of a function? What is the neutral element? 
         \item We let \( \bb Z_2 \) to be the set \( \{ 0, 1 \} \), with the binary law being addition modulo 2, so for instance \( 0 + 1 = 1 \), and \( 1 + 1 = 0 \). This is a group in which each element is its own inverse. 
-        \item More generally, we let \( \bb Z_n \) to be the set \( \{ 0, \dots, n-1 \} \) with law being addition mod \( n \), so to compute \( p + q \), we first do it as in \( \bb Z \), and then let \( p + q \) be the reminder of this modulo \( n \).
+        \item More generally, we let \( \bb Z_n \) to be the set \( \{ 0, \dots, n-1 \} \) with law being addition mod \( n \), so to compute \( p + q \), we first do it as in \( \bb Z \), and ten take the reminder modulo \( n \).
         \item Let \( \bb U_n \) be the set of \( n \)th roots of unity, that is
         \begin{equation*}
             \bb U_n = \{ \exp(\frac{2\pi k}{n}) \mid k \in \{0, \dots, n - 1\} \},
         \end{equation*}
         with law being multiplication. This is a group, which is in fact the same as \( \bb Z_n \), more on this when we will do modular arithmetic.
-        \item Dihedral groups are example of finite groups that are not abelian. The \( n \)th dihedral groups represent the rotational and mirrors symmetries of the regular \( n \)gone, so for instance the third dihedral groups is the symmetries of the equilateral triangle. It has \( 6 \) elements, 
+        \item Dihedral groups are example of finite groups that are not abelian. The \( n \)th dihedral group represents the rotational and mirror symmetries of the regular \( n \)gone, so for instance the third dihedral groups is the symmetries of the equilateral triangle. It has \( 6 \) elements, 
         \begin{equation*}
             D_3 \defeq \{ r_0, r_1, r_2, s_0, s_1, s_2 \},    
         \end{equation*}
         where \( r_i \) means \textit{rotate the triangle by \( i \times 120^\circ \)}, (so \( r_0 \) is the neutral element) and \( s_i \) means \textit{reflect the triangle along the \( i \)th median}. The law of groups is \textit{doing the symmetry one after another, from the rightmost to the leftmost}, so for instance \( s_2s_1 = r_1 \), as if we take a triangle, reflect it along the first median, then the second median, it amounts to rotating it by \( 120^\circ \). \cemph{TODO : add pictures, it would be better}. Check that this the group law is indeed not commutative.
-        \item If you are interested in non-abelian finite groups, check out the classification of finite simple group. It consist of finding all finite group, that enjoy the property of being \textit{simple} (it does not mean at all that the group is simple, but rather that its subgroups behave in some manageable way). It took humanity fifty years and tens of thousands of pages to prove that we found them all.  
+        \item If you are interested in non-abelian finite groups, check out the classification of finite simple groups. It consist of finding all finite groups, that enjoy the property of being \textit{simple} (it does not mean at all that the group is simple, but rather that its subgroups behave in some manageable way). It took humanity fifty years and tens of thousands of pages to prove that we found them all.  
     \end{itemize}    
 \end{cexp}
 
@@ -214,7 +214,7 @@ Monoids are interesting objects, but if we ask moreover that every element has a
 \end{lemproof}
 
 \begin{cex}{}{relationships_in_groups}
-    Let \( (G, \cdot, e) \) bea group, and let \( x, y \in G \), prove that we always have the following identities (and remember that they exists):
+    Let \( (G, \cdot, e) \) be a group, and let \( x, y \in G \), prove that we always have the following identities (and remember that they exists):
     \begin{itemize}
         \item \( \inv e = e \),
         \item \( \inv {(xy)} = \inv y \inv x \).
@@ -223,7 +223,7 @@ Monoids are interesting objects, but if we ask moreover that every element has a
 \end{cex}
 
 \begin{cdef}{}{subgroup}
-    Let \( G \) be a group. A subgroup of \( G \) is a subset \( H \subseteq G \) that is contains the neutral element, is closed under the group operation, and under taking inverses.
+    Let \( G \) be a group. A subgroup of \( G \) is a subset \( H \subseteq G \) that contains the neutral element, is closed under the group operation, and under taking inverses.
 \end{cdef}
 
 In fact, the definition of subgroups contains redundant parts, to check that a subset is a subgroup, there is less work that we need to do.
@@ -231,11 +231,11 @@ In fact, the definition of subgroups contains redundant parts, to check that a s
     Let \( G \) be a group, and \( H \subseteq G \). Then \( H \) is a subgroup if and only if it is non-empty, and whenever \( x, y \in H \), we have \( x\cdot\inv y \in H \). 
 \end{clem}
 \begin{lemproof}{subgroup_charac}
-    Suppose \( H \) is a subgroup of \( (G, \cdot, e) \), then it contains the neutral element, so is not empty. If \( x, y \in H \), then by closure under taking the inverse \(  \inv y \in H \), and as \( H \) is closed under the group law, we get \( x \cdot \inv y \in H \). Conversely, as \( H \) is non-empty, we can chose a \( x \in H \), and by hypothesis, \( x \cdot \inv x \in H \), that is \( e \in H \). Now take any \( x \in H \), we have \( e \cdot \inv x \in H \), so \( \inv x = e \cdot \inv x \in H \), so \( H \) is closed under taking inverses. Finally, let \( x, y \in H \), we have by what we just shown that \( \inv y \in H \), now applying the hypothesis with \( x \) and \( \inv y \), we get \( x \cdot \inv {(\inv y)} \in H \), that is, \( x \cdot y \in H \).
+    Suppose \( H \) is a subgroup of \( (G, \cdot, e) \), then it contains the neutral element, so is not empty. If \( x, y \in H \), then by closure under taking the inverse, \(  \inv y \in H \), and as \( H \) is closed under the group law, we get \( x \cdot \inv y \in H \). Conversely, as \( H \) is non-empty, we can chose \( x \in H \), and by hypothesis, \( x \cdot \inv x \in H \), that is \( e \in H \). Now take any \( x \in H \), we have \( e \cdot \inv x \in H \), so \( \inv x = e \cdot \inv x \in H \), so \( H \) is closed under taking inverses. Finally, let \( x, y \in H \), we have by what we just shown that \( \inv y \in H \), now applying the hypothesis with \( x \) and \( \inv y \), we get \( x \cdot \inv {(\inv y)} \in H \), that is, \( x \cdot y \in H \).
 \end{lemproof}
 
 \begin{cexp}{}{some_subgroups}
-    Subgroups are everywhere. 
+    Here are some examples of subgroups.
     \begin{itemize}
         \item Let \( n \in \bb Z \), call \( n\bb Z \) the set
         \begin{equation*}
@@ -249,7 +249,7 @@ In fact, the definition of subgroups contains redundant parts, to check that a s
 \end{cexp}
 
 \begin{cex}{}{intersection_subgroups}
-    Let \( G \) be a group, and let \( (G_i)_{i \in I} \) be a family of subgroup of \( G \), check that the intersection \( \bigcap_{i\in I} \) is again a subgroup of \( G \).
+    Let \( G \) be a group, and let \( (G_i)_{i \in I} \) be a family of subgroup of \( G \), check that the intersection \( \bigcap_{i\in I} G_i \) is again a subgroup of \( G \).
 \end{cex}
 
 We now dive into the world of morphism of groups. We used the word \textit{isomorphic} above, it means that two groups are the same, in a very precise and powerful way.
@@ -267,7 +267,7 @@ We now dive into the world of morphism of groups. We used the word \textit{isomo
 \end{cexp}
 
 \begin{crem}{}{inj_surj_group}
-    As morphism of group are in particular functions, it makes sense to say that a morphism of group is injective, surjective, or bijective. In the last case, we say that \( f \) is an \cemph{isomorphism}. So an isomorphism between two groups is a morphism of group that is bijective, i.e. that is both injective and surjective. If \( f : G \to H \) is an isomorphism of groups, we write \( G \simeq H \), and it means that the two groups are the same, up to renaming the elements. Any group-theoretic thing that one can say about the group will be true for any isomorphic group.
+    As morphisms of groups are in particular functions, it makes sense to say that a morphism of group is injective, surjective, or bijective. In the last case, we say that \( f \) is an \cemph{isomorphism}. So an isomorphism between two groups is a morphism of group that is bijective, i.e. that is both injective and surjective. If \( f : G \to H \) is an isomorphism of groups, we write \( G \simeq H \), and it means that the two groups are the same, up to renaming the elements. Any group-theoretic thing that one can say about a group will be true for any isomorphic group to it.
 \end{crem}
 
 Like in the case for monoids, we define the kernel and the image. Notice that the definition is the same as Definition \ref{def:kernel_image}.
@@ -290,7 +290,7 @@ Like in the case for monoids, we define the kernel and the image. Notice that th
     We already know that \( \ker(f) \) and \( \im(f) \) are submonoids, according to Lemma \ref{lem:submonoid_kernel_image}. To check that it is a subgroup, it remains to see that they are closed under taking inverses. For that, let \( x \in \ker(f) \), then \( f(\inv x) = \inv {f(x)} \), because \( f \) is a morphism of groups, and by hypothesis, \( f(x) = e_H \), therefore, \( f(\inv x) = \inv {e_H} = e_H \). This proves \( \ker(f) \) is a subgroup of \( G \). Finally, take \( y \in \im(f) \), that is \( y = f(x) \) for some \( x \in G \). We have \( \inv y = \inv {f(x)} = f(\inv x) \), meaning that \( \inv y \in \im(f) \), so \( \im(f) \) is a subgroup of \( H \).
 \end{lemproof}
 
-Images and kernels are very convenient object. Knowing them tells us when a morphism is injective, surjective, or an isomorphism.
+Images and kernels are very convenient objects. Knowing them tells us when a morphism is injective, surjective, or an isomorphism.
 \begin{cprop}{}{inj_surj_iff_groups}
     Let \( f : G \to H \) be a morphism of groups. Then
     \begin{itemize}
@@ -310,7 +310,7 @@ Images and kernels are very convenient object. Knowing them tells us when a morp
 \begin{cexp}{}{surj_inj_example_group}
     Recall the examples of Example \ref{exp:group_morphism_example}.
     \begin{itemize}
-        \item Let \( G \) be a group. The map \( 0 \to G \) is injective, and the map \( G \to 0 \) is injective. If \( G \) is not the zero group, then the composition \( G \to 0 \to G \) is neither injective, nor surjective.
+        \item Let \( G \) be a group. The map \( 0 \to G \) is injective, and the map \( G \to 0 \) is surjective. If \( G \) is not the zero group, then the composition \( G \to 0 \to G \) is neither injective, nor surjective.
         \item If \( H \subseteq G \) is a subgroup, then the map \( \iota : H \to G \) is injective.
         \item The map \( f : \bb Z \to \bb Z_2 \) of Example \ref{exp:group_morphism_example} is surjective. 
     \end{itemize}
@@ -328,7 +328,7 @@ Images and kernels are very convenient object. Knowing them tells us when a morp
 \end{cdef}
 
 \begin{cdef}{}{power_element}
-    Let \( x \in G \) be an element of a group. Let \( n \in \bb Z \), we define by induction \( x^n \). If \( n = 0 \), we let \( x^0 = e \). Suppose \( x^n \) have been defined, we define \( x^{n + 1} \) to be \( x^n \cdot x \). Suppose \( n < 0 \), then we define \( x^n = \inv {(x^{-n})} \).
+    Let \( x \in G \) be an element of a group. Let \( n \in \bb Z \), we define by induction \( x^n \). If \( n = 0 \), we let \( x^0 = e \). Suppose \( x^n \) has been defined, we define \( x^{n + 1} \) to be \( x^n \cdot x \). Suppose \( n < 0 \), then we define \( x^n = \inv {(x^{-n})} \).
 \end{cdef}
 
 \begin{cex}{}{power_group_law}
@@ -366,13 +366,13 @@ Images and kernels are very convenient object. Knowing them tells us when a morp
 
 \subsubsection{Finite group theory}
 
-Armed with those definition, we are ready to specialize ourself to the one of finite groups. 
+Armed with those definition, we are ready to specialize ourself to groups that are finite. 
 \begin{cdef}{}{finite_group}
     A \cemph{finite group} is a group that is finite set. We call its cardinality the \cemph{order} of the group.
 \end{cdef}
 
 \begin{cex}{}{example_finite_groups}
-    For all \( n \in \bb N \), the groups \( \bb Z_n \) are finite groups of order \( n \). The group with one element is the unique finite group of order \( 1 \). There are no group of order \( 0 \), as such a group would be empty, thus would not have a neutral element. 
+    For all \( n \in \bb N \), the group \( \bb Z_n \) is a finite groups of order \( n \). The group with one element is the unique finite group of order \( 1 \). There are no group of order \( 0 \), as such a group would be empty, thus would not have a neutral element. 
 \end{cex}
 
 \begin{cdef}{}{order_element}
@@ -387,18 +387,18 @@ Armed with those definition, we are ready to specialize ourself to the one of fi
     \begin{equation*}
         X \defeq \{ x^n \mid n \in \bb N^* \}.
     \end{equation*}
-    It is included in \( G \), so it has to be finite, therefore there exists some \( n \neq m \) such that \( x^n = x^m \) (otherwise the map \( n \mapsto x^n \) would be an injection from \( \bb N \) to \( X \), meaning by Example \ref{exp:fintie_infinite_set_prop} that \( X \) is infinite). Without loss of generality, suppose \( n  m \). Then, multiplying by \( \inv {(x^n)} \) both sides, we get \( e = x^m \inv {(x^n)} = x^{m-n} \) with \( 0 < m - n \). 
+    It is included in \( G \), so it has to be finite, therefore there exists some \( n \neq m \) such that \( x^n = x^m \) (otherwise the map \( n \mapsto x^n \) would be an injection from \( \bb N \) to \( X \), meaning by Example \ref{exp:fintie_infinite_set_prop} that \( X \) is infinite). Without loss of generality, suppose \( n < m \). Then, multiplying by \( \inv {(x^n)} \) both sides, we get \( e = x^m \inv {(x^n)} = x^{m-n} \) with \( 0 < m - n \). 
 \end{lemproof}
 
 \begin{crem}{}{order_notation}
-    Therefore, as the order of an element is always defined, we define the function
+    Therefore, as the order of an element is always defined for finite groups, we define the function
     \fun \ord G {\bb N} x {\ord(x)}
     that sends an element to its order, and we extend this notation to groups themselves by letting \( \ord(G) \) be the order of the group \( G \).  
 \end{crem}
 
-The order of an element of a group is related to the order of the group itself, we have that \( \ord(x) \mid \ord(G) \) (\( \mid \) means divides). In order to prove that, we will prove a more general theorem, that is the order of any subgroup of \( G \) divides the order of \( G \). This is known as Lagrange's theorem.
+The order of an element of a group is related to the order of the group itself, we have that \( \ord(x) \mid \ord(G) \) (\( \mid \) means divides). In order to prove that, we will prove a more general theorem saying that the order of any subgroup of \( G \) divides the order of \( G \). This is known as Lagrange's theorem.
 
-\begin{cdef}{}{index_subgroup}
+\begin{cdef}{Lagrange}{index_subgroup}
     Let \( H \subseteq G \) be a finite group and a subgroup. We define \( [G : H] \), the \cemph{index} of \( H \) in \( G \) to be the cardinality of the (finite) set 
     \begin{equation*}
         \{ x H \mid x \in G \}.
@@ -442,7 +442,9 @@ The order of an element of a group is related to the order of the group itself, 
     \begin{equation*}
         x^a \inv {(x^b)} = x^{a - b} = x^{qn + r} = x^{qn}x^r = (x^n)^qx^r = e^qx^r = x^r.
     \end{equation*}      
-    As \( 0 \le r \le n \), we indeed have \( x^a \inv {(x^b)} = x^r \in X \). This proves \( X \) is a subgroup.
+    As \( 0 \le r \le n \), we indeed have \( x^a \inv {(x^b)} = x^r \in X \). This proves \( X \) is a subgroup. 
+
+    To conclude that \( \ord(x) = \ord(\langle x \rangle) \), we need to show that \( |  \{ e, x, x^2, \cdots, x^{n - 1} \} | = n \), which is not immediate. To see the subtle problem, recall that with our notation, the set \( \{ a, a \} \) has only one element! Thus, we need to see that when \( 0 \le i, j < n \) such that \( i \neq j \), \( x^i \neq x^j \). We can assume that \( i < j \), and \( x^i = x^j \) is to say that \( x^{j - i} = e \). As the order of \( x \) is the smallest number \( k \) such that \( x^k = 0 \), we have \( n \le j - i \), meaning that \( n \le n + i \le j \), but we assumed \( j < n \). This is a contradiction, so \( x^i \neq x^j \). 
 \end{lemproof}
 
 \begin{ccor}{}{order_element_divides}
@@ -461,7 +463,7 @@ The order of an element of a group is related to the order of the group itself, 
 \end{cex}
 
 \begin{cex}{}{is_neutral_divides_order}
-    Let \( G \) be a finite group, and let \( x \in G \). Prove that \( x^k = e \) if and only if \( \ord(k) \) divides \( k \).
+    Let \( G \) be a finite group, and let \( x \in G \). Prove that \( x^k = e \) if and only if \( \ord(x) \) divides \( k \).
 \end{cex}
 
 \begin{cex}{}{injection_preserves_order}
@@ -470,7 +472,7 @@ The order of an element of a group is related to the order of the group itself, 
 
 \subsubsection{Cyclic groups}
 
-Previously, we used several times the idea that the set \( \{ 0, \dots, n - 1 \} \), with the addition modulo \( n \), was a group. For instance, this fact is hidden in the proof of Lemma \ref{lem:cyclic_generated}. We also introduced them without real proof in Example \ref{exp:example_groups}. We now construct these group very formally, using the idea of quotient groups, that we only develop in the case of abelian groups, although it is completely possible to make it more general by introducing \textit{normal} subgroups. Then, we use group theoretical tools to generalize the fact that if \( p \) is prime, and \( 1 \le a < p \), then \( a^p \) is equal to 1 modulo \( n \). Recall that the RSA algorithm is based on this fact.
+Previously, we used several times the idea that the set \( \{ 0, \dots, n - 1 \} \), with the addition modulo \( n \), was a group. For instance, this fact is hidden in the proof of Lemma \ref{lem:cyclic_generated}. We also introduced them without real proof in Example \ref{exp:example_groups}. We now construct these groups very formally, using the important idea of quotient groups, that we only develop in the case of abelian groups, although it is completely possible to make it more general by introducing \textit{normal} subgroups. Then, we use group theoretical tools to generalize the fact that if \( p \) is prime, and \( 1 \le a < p \), then \( a^p \) is equal to 1 modulo \( n \). Recall that the RSA algorithm is based on this fact.
 
 \begin{crem}{}{coset_abelian}
     Let \( A \) be an abelian group, and \( B \subseteq A \) be a subgroup. We write \( a + B \) for the left coset, and we notice that, as \( A \) is abelian (this is false in general), the right coset \( B + a \) is equal to the left coset \( a + B \). Thus for abelian groups, we will speak of cosets, without specifying left or right.     
@@ -499,10 +501,10 @@ Previously, we used several times the idea that the set \( \{ 0, \dots, n - 1 \}
     Suppose \( [a] = [0] \), then \( a \in [0] = 0 + B = B \). Conversely, for all \( b \in B \), \( b + B = B \), so \( [b] = [0] \).
 \end{lemproof}
 
-The next proposition allows us to define maps out of a quotient. It is very reminiscent of Remark \ref{rem:function_out_quotient}, because we are in fact doing the same thing, just in another mathematical realm. Remark \ref{rem:function_out_quotient} happened for quotients on sets, and the next result is for quotients on abelian groups. The underlying construction is however the same, and if you are interested by such things, you should learn about \textit{category theory}.
+The next proposition allows us to define maps out of a quotient. It is very reminiscent of Remark \ref{rem:function_out_quotient}, because we are in fact doing the same thing, just in another mathematical realm. Remark \ref{rem:function_out_quotient} happened for quotients on sets, and the next result is for quotients on abelian groups. The underlying construction is however the same, and if you are interested by how those universal constructions happen, you should learn about \textit{category theory}.
 
 \begin{cprop}{}{universal_prop_quotient_group}
-    Let \( A, C \) be abelian groups, let \( B \subseteq A \) be a subgroup. Then for all group morphism \( f : A \to C \) such that \( f(b) = 0 \) for all \( B \) in \( C \), there exists a unique group morphism \( \bar f : A / B \to C \) such that \( f(a) = \bar f([a]) \). 
+    Let \( A, C \) be abelian groups, let \( B \subseteq A \) be a subgroup. Then for all group morphism \( f : A \to C \) such that for all \( B \) in \( C \), \( f(b) = 0 \), there exists a unique group morphism \( \bar f : A / B \to C \) such that \( f(a) = \bar f([a]) \). 
 \end{cprop}
 \begin{propproof}{universal_prop_quotient_group}
     We let \( \bar f : A / B \to C \) defined by \( \bar f ([a]) = f(a) \). Suppose \( [a] = [a'] \), then \( a + b = a' + b' \) for some \( b, b' \in B \), thus \( a - a' = b' - b \in B \). Then
@@ -515,6 +517,9 @@ The next proposition allows us to define maps out of a quotient. It is very remi
     \end{equation*}
 \end{propproof}
 
+\begin{crem}{}{map_out_quotient_group}
+    Let \( f : A \to C \) be a morphism of abelian groups. Then by Proposition \ref{prop:universal_prop_quotient_group}, if \( B \subseteq A \) is a subgroup such that \( B \subseteq \ker(f) \), we can consider the map \( \bar f : A / B \to C \), and we often call this map \( f \) again. We say that the map \( f : A \to C \) \cemph{passes to the quotient}.    
+\end{crem}
 The next theorem is the analogue for groups of Theorem \ref{thm:epi_mono_set}.
 \begin{cthm}{First isomorphism theorem}{first_isomorphism_theorem_group}
     Let \( f : A \to B \) be a morphism of abelian groups, then
@@ -536,8 +541,99 @@ After those abstract consideration, we define more concrete objects, called the 
 \begin{crem}{}{zeroth_cyclic}
     If \( n = 0 \), then \( n\bb Z = \{ 0 \} \), so \( \bb Z_0 = \bb Z / \{0 \} \simeq \bb Z \), and if \( n = 1 \), then \( 1\bb Z = \bb Z \), so \( \bb Z_1 \simeq \{ 0 \} \). Therefore, we are mostly interested with cyclic groups for \( n \geq 2 \). 
 \end{crem}
+    
+As it can be difficult to deal with quotient groups, we take a little, and important, detour via modular arithmetic, and prove that the objects we define are in fact the cyclic groups. We recall the theorem of Euclidean division. 
 
-Let \( n \geq 2 \). We can effectively work with this quotient in the following way. 
+\begin{cthm}{Euclidean division}{euclidean_division}
+    Let \( n, m \in \bb Z \) be integers. There exists a unique couple \( (q, r) \) with \( q \in \bb Z \) and \( 0 \le r < n \) such that 
+    \begin{equation*}
+        n = bm + r.
+    \end{equation*}
+\end{cthm}
+
+Uniqueness of such a couple allows us to define 
+\begin{cdef}{}{modulo_n}
+    Let \( n \geq 1 \). We define the function \( \mod n : \bb Z \to \{ 0, \dots, n-1 \} \) sending any \( m \in \bb Z \) to the (unique) number \( m \mod n \) such that 
+    \begin{equation*}
+        n = mq + (m \mod n).
+    \end{equation*}
+    This is well defined according to Theorem \ref{thm:euclidean_division}.
+\end{cdef}
+
+\begin{cdef}{}{equality_mod_n}
+    Let \( a, b \in \bb Z \), when \( (a \mod n) = (b \mod n) \), write
+    \begin{equation*}
+        a \equiv b \modd n.
+    \end{equation*}
+\end{cdef}
+
+\begin{cex}{}{modulo_equiv_relation}
+    Check that \( - \equiv - \modd n \) of Definition \ref{def:equality_mod_n} defines an equivalence relation on \( \bb Z \). 
+\end{cex}
+
+\begin{cexp}{}{mod_compatible_operation}
+    Let \( a, b, c, d \in \bb Z \), with \( a \equiv b \modd n \) and \( c \equiv d \modd n \). Check that
+    \begin{itemize}
+        \item \( n \equiv 0 \modd n \).
+        \item \( a + c \equiv b + d \modd n \) 
+        \item \( a \times c \equiv b \times d \modd n \)
+    \end{itemize}
+\end{cexp}
+
+\begin{cdef}{}{mod_n_plus_times}
+    Calling \( k \mapsto \overline k \) the maps \( (- \mod n) \) of Definition \ref{def:modulo_n}, we define:
+    \begin{align*}
+        \overline k + \overline l \defeq \overline {k + l} \\
+        \overline k \times \overline l \defeq \overline {kl}.
+    \end{align*}
+    Exercise \ref{exp:mod_compatible_operation} proves that it does not depend on the representative.  
+\end{cdef}
+
+
+
+\begin{cprop}{}{cyclic_abelian_group_representation}
+    Let \( n \geq 2 \). The set \( \{ \overline 0, \dots, \overline {n-1} \} \) together with the law \( + \) of \ref{def:mod_n_plus_times} is a group with neutral element \( \overline 0 \), and inverse \( - \overline k = \overline{- k}  \). Moreover, this group is isomorphic to \( \bb Z_n \).
+\end{cprop}
+\begin{propproof}{cyclic_abelian_group_representation}
+    The fact that it is a group follows from Exercise \ref{exp:mod_compatible_operation}. Let \( f : \bb Z \to \{ \overline 0, \dots, \overline {n-1} \} \) be the morphism of abelian groups sending \( k \) to \( \overline k \). If \( f(k) = \overline 0 \), then \( \overline k = \overline 0 \), thus \( k \equiv 0 \modd n  \), meaning that \( \ker(f) = n\bb Z \). Moreover, \( f \) is surjective, so \( \im(f) = \{ \overline 0, \dots, \overline {n-1} \} \). By the first isomorphism theorem, 
+    \begin{equation*}
+        \bb Z / \ker(f) = \bb Z / n\bb Z \simeq \im(f) = \{ \overline 0, \dots, \overline {n-1} \}. 
+    \end{equation*}
+\end{propproof}
+
+\begin{crem}{}{remove_notation}
+    Generally, there is no harm in removing completely the notation \( \overline k \), and simply write \( k \). Therefore, in \( \bb Z_2 \), we will write \( 1 + 1 = 0 \) and \( -1 = 1 \).
+\end{crem}
+
+\subsection{Application to arithmetic}
+
+\begin{cdef}{}{gcd_def}
+    Let \( m, n \in \bb Z \), we define the \cemph{greatest common divisor}, or \cemph{gcd}, to be
+    \begin{equation*}
+        \gcd (m, n) \defeq \max \{ k \in \bb N \mid k \text{ divides both \( m \) and \( n \) } \}.
+    \end{equation*} 
+    This definition makes sense, as \( 1 \) divides all numbers, so the set is non-empty.
+    If \( \gcd(m, n) = 1 \), we say that \( m \) and \( n \) are \cemph{coprime}.
+\end{cdef}
+
+% \begin{cdef}{}{operation_mod}
+%     Therefore, the result of Exercise \ref{exp:mod_compatible_operation} allows us to define 
+% \end{cdef}
+% \begin{cdef}{}{add_mul_mod}
+%     Let \( n \geq 1 \), and let \( a, b \in \{ 0, \dots, n-1 \} \), then 
+%     \begin{equation*}
+%         (a + b) \mod n = 
+%     \end{equation*}
+% \end{cdef}
+% \begin{clem}{}{cyclic_is_integer_mod_n}
+%     Let \( n \geq 2 \), and let \( A \defeq \{ 0, \dots, n - 1\} \). We define the binary operation on \( A \), by letting 
+%     \begin{equation*}
+%         a + b \defeq (a + b) \mod n.
+%     \end{equation*}
+%     where the right symbol \( + \) is the one of integers, and the left one is the new one we define on \( A \). 
+% \end{clem}
+% Let \( n \geq 2 \). We can effectively work with this quotient in the following way. We form the set
+% \( \{ 0, \dots, n - 1 \}  \)
 % Let \( k \in \bb Z \) be any integer, form the set 
 % \begin{equation*}
 %     K \defeq \{ k, k + 1, \dots, k + (n - 1) \},
