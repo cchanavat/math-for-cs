@@ -1199,7 +1199,13 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/mlmodern/ts1-mlmr10.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ot1mlmtt.fd
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ot1mlmtt.fd
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ot1mlmtt.fd
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/mlmodern/ot1mlmtt.fd
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/mlmodern/rm-mlmtt10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
 INPUT ./chapters/functions.tex
 INPUT chapters/functions.tex
 INPUT ./chapters/functions.tex
@@ -1225,4 +1231,5 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/mlmodern/mlmtt10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

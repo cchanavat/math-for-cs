@@ -172,5 +172,171 @@ This was only the tip of the iceberg. Logic is a very powerful language that all
     \item \( \defeq \)
     \item prove implies + contrapositive
     \item prove iff 
+    \item i.e.
     \item Learn to typecheck!! if you are a physicist, then you know it already. If you program in a typed language then you know it already. Math is a typed language. If something doesn't typecheck, then it is either an abuse of notation, try to make the notation more explicit if you are not familiar with it enough, or an error.
 \end{itemize}
+
+What is a proof? A proof is a way to testify that a mathematical sentence is true. We saw in the previous part how to construct mathematical sentences, but we didn't see how to prove them.
+\begin{cdef}{}{what_is_proof}
+    A \cemph{proof} is a succession of mathematically sound steps. Whenever you write a proof, you always have a \cemph{bag of hypothesis}. This bag of hypothesis is a collection of mathematical sentences that you locally assume as true. This bag of hypothesis will grow during the proof (we will see how), and the goal of a proof is to reach a certain mathematical sentence (the conclusion) by mean of logical steps that combine the hypothesis in the bag. The bag is implicit, and is never explicitly described in textbook. It consists of:
+    \begin{enumerate}
+        \item The statements that are always true (i.e. the theorem we already proved),
+        \item The axioms that our objects of interest satisfy (for instance, if there is some \( r \in \bb Q \) in the proof, then by definition, we can say \( r = \frac p q \) with \( p, q \) integers).
+        \item The local assumptions, that is the thing that we assume are true for the sake of proving the theorem, but that are not always true. What does it mean? We will understand it better when we will talk about implication, but for instance consider the statement "if \( n \) is even, then \( n + 1 \) is odd". Then to prove that, we will take some \( n \), and assume for the sake of the proof, that \( n \) is even. However, we are \textit{not} claiming that all \( n \)'s are even, we are only assuming that locally, for our precise needs, that \( n \) is even. It is like when we write a function in programming language. For instance if we write the function:
+        \begin{verbatim}
+            float my_proof (int n) {
+                ...
+            }
+        \end{verbatim} 
+        then we do not say that there is always (outside of the scope of the function) some \verb|n| of type \verb|int|, we merely say that during the construction of the function \verb|my_proof|, we are allowed to use a variable of type \verb|n| (in fact, functions and proofs are the same thing). 
+    \end{enumerate}
+\end{cdef}
+Do not forget your hypothesis, they are what you need to write your proof. When you are stuck in a proof, first look if any of your local hypothesis are useful to move towards the goal. If you do not see anything relevant, look at the recent and relevant theorems we proved. Is there any that would significantly transform the \textit{state} of the proof into something more interesting to work with? Can the application of a theorem give new hypothesis that will be useful to move forwards?
+
+
+
+Now that we know what a proof is supposed to do, we summarize here how to construct them. Say we want to prove a mathematical statement, then it is a formula written in the language of logic. This formula have a certain shape, and depending on its shape, we will apply certain proof technique. Thus, we see that math is in fact a very mechanical procedure. To do a proof, it suffices to pattern match with the following list. Let us summarize proof techniques with examples. It is good to reflect on why those really prove what we want to prove, given what we saw in the previous chapter.
+\begin{itemize}
+    \item If you need to prove a statement of the form
+        \begin{equation*}
+           A \land B,
+        \end{equation*}
+        then you will do two proofs, first you will prove \( A \), then you will prove \( B \). For instance prove
+        \begin{equation*}
+            4 \text{ is even } \land 5 \text{ is odd}.
+        \end{equation*}
+        \begin{proof}
+            We have that \( 4 = 2 k \) with \( k = 2 \), thus is even. Next, \( 5 = 2k + 1 \) with \( k = 2 \), so is odd.
+        \end{proof}
+
+    \item If you need to prove a statement of the form
+        \begin{equation*}
+            \forall x \in X, P(x),
+        \end{equation*}
+        that is a statement that starts with a forall, then \cemph{your proof will begin by "let \( x \in X \)"}. That is, when a statement starts with forall, you should pick an element of the set we quantify over, and keep this element in your pocket. It is yours now. When you say "let \( x \in X \)", then you have an \( x \), and this \( x \) belongs to \( X \), so it enjoys all the properties of a being in \( X \). Then, with this \( x \) in hand, we now prove \( P(x) \) (where the \( x \) in \( P(x) \) is that one \( x \) that we just picked in \( X \). For instance, prove:
+        \begin{equation*}
+            \forall x \in \{ t \in \bb R \mid t(t - 2) = 0\}, x + 1 \text{ is odd }. 
+        \end{equation*}
+        \begin{proof}
+            Let \( x \in \{ t \in \bb R \mid t(t - 2) = 0\} \), then \( x^2(x - 2) = 0 \), so \( x = 0 \), or \( x = 2 \), that is \( x + 1 = 1 \) or \( x + 1 = 3 \), in both cases, \( x + 1 \) is odd.
+        \end{proof}
+
+    \item If you need to prove a statement of the form
+        \begin{equation*}
+            A \lor B,
+        \end{equation*}
+        then you can chose whichever you prefer, you can prove \( A \), or you can prove \( B \), you chose. Proving \( A \) proves \( A \lor B \), and proving \( B \) also proves \( A \lor B \) (look at the truth table). However, in practice, it is not that simple, because \( A \) and \( B \) both depend on the same parameter, where for some value of the parameter \( A \) is true while \( B \) is false, and for the rest of the values, \( B \) is true while \( A \) is false. In that case (that is honestly the most frequent case), the trick is to do the following. I want to prove \( A \lor B \). Suppose \( A \) is true, then great, I proved \( A \lor B \), if not, then that means that \( A \) is false, and I am proving \( B \). This works nicely, because now to prove \( B \), I have a new hypothesis in my pocket, namely, that \( A \) is false. Let us see an example.
+        \begin{equation*}
+            \forall n \in \bb N, n \text{ is even, or } n \text{ is odd}.
+        \end{equation*}
+        \begin{proof}
+            Let \( n \in \bb N \) (let us not forget the previous point!!). Then we see that we will not be able to prove that \( n \) is even, or \( n \) is odd, because we do not have enough information on \( n \). Therefore, we do the trick. Suppose \( n \) is not even, then (this is the definition of odd), \( n \) is odd.
+        \end{proof}
+        
+    \item If you need to prove a statement of the form
+        \begin{equation*}
+            \exists x \in X, P(x),
+        \end{equation*}
+        then there is no general method, but you, mathematician, will have to work and construct an \( x \) in \( X \) that makes \( P(x) \) true. You will have to bring to existence a particular element of the set that satisfies the property \( P \). In general, not all elements of \( X \) satisfy \( P \), the statement \( \exists x \in X, P(x) \) says that there exists at least one in \( X \) that does, and the role of the proof is to find it. For instance,
+        \begin{equation*}
+            \exists n \in \bb N, n + 7 = 9.
+        \end{equation*}
+        \begin{proof}
+            By taking \( n = 2 \in \bb N  \), we see that \( 2 + 7 = 9 \).
+        \end{proof}
+
+    \item There is a common upgrade to the exists quantifier. We write \( \exists! \) to mean \cemph{there exists a unique}. To prove that there exists a unique, the standard way to prove that is to decompose the proof in two steps. First, we prove that there indeed exists something, and then, we assume that we have another thing, and prove that in fact it has to be the one we exhibit from the existence. For instance,
+    \begin{equation*}
+        \exists! n \in \bb N, n + 7 = 9.
+    \end{equation*}
+    \begin{proof}
+        We already saw that \( n = 2 \) proves the existence. Suppose we have an \( m \in \bb N \) such that \( m + 7 = 9 \), then \( m = 9 - 7 = 2 \), proving the uniqueness.
+    \end{proof}
+
+    \item However, sometimes it is useful to prove that something is unique, \textit{without proving it exists}. The way to do is to assume that we have two such things \( a, b \), and then prove that \( a = b \).
+    
+    \item If you want to prove a statement of the form
+    \begin{equation*}
+        A \implies B,
+    \end{equation*}
+    then you \cemph{your proof will always begin by "assume \( A \)"}. \cemph{You put the hypothesis \( A \) in your bag of hypothesis}, and you use it to move towards \( B \). Maybe you will not use \( A \) right away, but remember when you are stuck that there is this \( A \) lying around! For instance,
+    \begin{equation*}
+        \forall n \in \bb N \left((n \text{ is even}) \implies (n \mod 4) \in \{ 0, 2 \} \right).
+    \end{equation*}
+    \begin{proof}
+        Let \( n \in \bb N \), and assume \( n \) is even. We do the euclidean division of \( n \) by \( 4 \), we have \( n = 4q + r \) with \( 0 \le r < 4 \). By definition \( (n \mod 4) \) is the reminder \( r \), so we want to prove that \( r = 0 \) or \( r = 1 \). \cemph{By hypothesis, \( n \) is even}, so \( n = 2k \) for some integer \( k \), therefore we have \( 2k = 4q + r \). Reordering this expression, we obtain \( r = 2(k-2q) \), thus \( r \) is even, and \( 0 \le r < 4 \), hence \( r = 0 \) or \( r = 2 \).
+    \end{proof}
+    Notice also in this proof how the application of the theorem of euclidean division added another hypothesis in our bag, namely that \( 0 \le r < 4 \), that we later used to proved that \( r = 0 \) or \( r = 2 \).
+
+    \item There is another equivalent way to prove the statement \( A \implies B \), it is to prove \( \neg B \implies \neg A \). Sometimes it is easier to work with this way. We call it the \cemph{contrapositive}.
+    \item Beware that we said \( A \implies B \) is the same thing as \( \neg B \implies \neg A \), and that we did NOT say something else, that people tend to prove instead. 
+    \item If you want to prove \( A \iff B \), then you prove first \( A \implies B \), and second \( B \implies A \). Of course, using contrapositive, you can also first prove \( A \implies B \), then \( \neg A \implies \neg B \).
+    
+    \item If you need to prove a statement of the form 
+    \begin{equation*}
+        \neg A,
+    \end{equation*}
+    then the standard way is to assume that \( A \) is true, so putting it in our bag of hypothesis, and then deduce a contradiction. For instance,
+    \begin{equation*}
+        \neg(3 \text{ is even})
+    \end{equation*}
+    \begin{proof}
+        Suppose \( 3 \) is even, then \( 3 = 2k \) for some integer \( k \), but solving for \( k \), we get \( k = \frac 3 2 \), which is not an integer, contradiction. 
+    \end{proof}
+    We see here that the contradiction we reached was provided by \( k \) is an integer, and \( k \) is not an integer. A lot of contradictions arise this way, whose general form is \( A \land \neg A \). So to prove that there is a contradiction, a common way is to prove that something and the negation of the same thing are both true at the same time. This is why for instance \( 0 = 1 \) is a contradiction. Indeed, we can prove \( \neg (0 = 1) \), so if we also prove \( 0 \neq 1 \), then this is the general contradiction shape with \( A \equiv "0 = 1" \).
+\end{itemize}
+
+Here is some more ways to prove things. 
+\begin{cdef}{}{modus_ponens}
+    If \( A \) is true, and \( A \implies B \) is true, then \( B \) is true. This principle is valid, and is known as the \cemph{modus ponens}.
+\end{cdef} 
+This is in fact why we prove theorem. Indeed, this principle means that we can use theorem. Suppose we proved a very cool theorem, whose statement is the proposition \( A \), then (as we proved it), \( A \) is true. Suppose now we want to prove some seemingly related statement \( B \), then according to modus ponens, to prove \( B \), it suffices to prove \( A \implies B \), and by above, to prove \( A \implies B \), we assume first that \( A \) is true, and we add it in our bag of hypothesis to prove \( B \), in practice, that means that we can use our theorem \( A \) during the proof. This is the deep reason why we can use theorem. For a more formal construction of this, see the \text{cut-elimination} procedure.  
+
+\begin{cdef}{}{induction}
+    The \cemph{induction principle} tells us
+    \begin{equation*}
+        \left(P(0) \land (\forall n \in \bb N, P(n) \implies P(n+1)) \right) \implies \forall n \in \bb N, P(n).
+    \end{equation*} 
+\end{cdef}
+What is this telling us? Suppose we want to prove something of the shape
+\begin{equation*}
+    \forall n \in \bb N, P(n),
+\end{equation*}
+Then, if we can prove 
+\begin{equation*}
+    \left(P(0) \land (\forall n \in \bb N, P(n) \implies P(n+1)) \right),
+\end{equation*}
+by modus ponens, and the induction principle, it will prove \( \forall n \in \bb N, P(n) \). Now, to prove somehting \( A \land B \), we first do \( A \), then \( B \). In our case, we first prove \( P(0) \), this is the \cemph{base case}. Then we prove \( \forall n \in \bb N, P(n) \implies P(n+1) \), this is the \cemph{inductive step}. According to our rules, to prove something like that, we start the proof by "let \( n \in \bb N \)", and we prove \( P(n) \implies P(n+1) \). According to the rules again, to prove that, we assume \( P(n) \) and need to prove \( P(n + 1) \). In short, the proof of \( \forall n \in \bb N, P(n) \implies P(n+1) \) starts with:
+"Let \( n \in \bb N \), and assume \( P(n) \) is true", then we do maths to prove \( P(n+1) \). This is how we already knew induction.
+
+Now that we saw how to prove something, it is time to do the opposite, and see how to use something we already proved. Indeed, hypothesis in our bag have certain shapes. It is time to see how to use deconstruct those shapes to apply them in our proofs. Thus, we place ourselves in the situation where we are doing a proof, and during this proof (as always) we have a bag of hypothesis.
+\begin{itemize}
+    \item Suppose we have an hypothesis \( A \land B \) in the bag. Then at any time during the proof, we can use \( A \) and we can use \( B \). It thus means that having \( A \land B \) in our bag of hypothesis is the same thing as having \( A \), and also having \( B \). 
+    \item Suppose we have an hypothesis \( A \lor B \) in the bag. Then if we want to use this hypothesis, we need to do two times the proof. One using assuming that \( A \) is true, and another assuming that \( B \) is true. Indeed, when we have \( A \lor B \), we do not know what the universe will give us \( A \) or \( B \)? Hence, we take care, and make sure everything will be ok whatever she gives us.
+    \item 
+\end{itemize}
+
+
+As in any language, maths as its own abbreviation, and tacit rules. In the following list, we try to hint some of the ways wa can craft mathematical sentences, what are their implicit assumptions, and how to deal with them.
+\begin{itemize}
+    \item In most textbook, you will barely see the connective \( \implies \), and somehow it is the one that is the most widely used. This is because the implication are all implicit, and this is the reader who needs to reconstruct them. For instance, when we write
+    \begin{equation*}
+        \text{If } P, \text{ then }Q,
+    \end{equation*}
+    or when we write
+    \begin{equation*}
+        \text{Suppose } P, \text{ then }Q,
+    \end{equation*}
+    or when we write
+    \begin{equation*}
+        \text{Assume } P, \text{ then }Q,
+    \end{equation*}
+    then we really mean \( P \implies Q \), this is just a way to write it in english. Therefore, when you will have to prove a statement "if \( P \), then \( Q \)", you will have to use the techniques described for the \( \implies \) connective.
+
+    \item The forall quantifier is also very often implicit, or written in plain english. For instance, we will write "check that for all \( x \) in \( X \), \( P(x) \)". Worse, it is also very common to say "prove that if \( x \in X \), then \( P(x) \). This sentence translate formally as "\( \forall x \in X, P(x) \)". Therefore, we use the "if ... then ..." construction to really mean a forall. This means no harm, as forall is secretly a generalization of the implication. Maybe you will feel that once you get use to math enough. 
+    
+    \item Suffice, necessary
+\end{itemize}
+
+Table of correspondance formal language, english language, mix. It suffices, it is necessary
+Proof techniques: induciton, modus ponens, contrapositiove, 
