@@ -237,7 +237,7 @@ Now that we know what a proof is supposed to do, we summarize here how to constr
             By taking \( n = 2 \), we see that \( 2 + 7 = 9 \).
         \end{proof}
 
-    \item There is a common upgrade to the exists quantifier. We write \( \exists! \) to mean \cemph{there exists a unique}. To prove that there exists a unique, the standard way to prove that is to decompose the proof in two steps. First, we prove that there indeed exists something, and then, we assume that we have another thing, and prove that in fact it has to be the one we just exhibited from the existence. For instance,
+    \item There is a common upgrade to the exists quantifier. We write \( \exists! \) to mean \cemph{there exists a unique}. To prove that there exists a unique, the standard way is to decompose the proof in two steps. First, we prove that there indeed exists something, and then, we assume that we have another thing, and prove that in fact it has to be the one we just exhibited from the existence. For instance,
     \begin{equation*}
         \exists! n \in \bb N, n + 7 = 9.
     \end{equation*}
@@ -260,7 +260,7 @@ Now that we know what a proof is supposed to do, we summarize here how to constr
     \end{proof}
     Notice also in this proof how the application of the theorem of euclidean division added another hypothesis in our bag, namely that \( 0 \le r < 4 \), that we later used to proved that \( r = 0 \) or \( r = 2 \).
 
-    \item There is another equivalent way to prove the statement \( A \implies B \), it is to prove \( \neg B \implies \neg A \). Sometimes it is easier to work with this way. We call it the \cemph{contrapositive}.
+    \item There is another equivalent way to prove the statement \( A \implies B \), it is to prove \( \neg B \implies \neg A \). Sometimes it is easier to work this way. We call it the \cemph{contrapositive}.
     \item Beware that we said \( A \implies B \) is the same thing as \( \neg B \implies \neg A \), and that we did NOT say something else, that people wrongly do instead. 
     \item If you want to prove \( A \iff B \), then you prove first \( A \implies B \), and second \( B \implies A \). Of course, using contrapositive, you can also first prove \( A \implies B \), then \( \neg A \implies \neg B \).
     
@@ -282,7 +282,7 @@ Here is some more ways to prove things.
 \begin{cdef}{}{modus_ponens}
     If \( A \) is true, and \( A \implies B \) is true, then \( B \) is true. This principle is valid, and is known as the \cemph{modus ponens}.
 \end{cdef} 
-This is in fact why we prove theorem. Indeed, this principle means that we can use the theorems we proved in the past. Suppose we proved a very cool theorem, whose statement is given by \( A \), then (as we proved it), \( A \) is true. Suppose now we want to prove some seemingly related statement \( B \), then according to modus ponens, to prove \( B \), it suffices to prove \( A \implies B \). By the above, to prove \( A \implies B \), we assume first that \( A \) is true (we already know it, but why not), and we add it in our bag of hypothesis, then we proceed to prove \( B \). In practice, it means that we can use the theorem \( A \) during the proof of \( B \). This is the deep reason why we can use theorem. For a more formal construction of this, see the \text{cut-elimination} procedure.  
+This is in fact why we prove theorem. Indeed, this principle means that we can use the theorems we proved in the past. Suppose we proved a very cool theorem, whose statement is given by \( A \), then (as we proved it), \( A \) is true. Suppose now we want to prove some seemingly related statement \( B \), then according to modus ponens, to prove \( B \), it suffices to prove \( A \implies B \). By the above, to prove \( A \implies B \), we assume first that \( A \) is true (we already know it, but why not), and we add it in our bag of hypothesis, \cemph{so we can use it in our proof}, then we proceed to prove \( B \). In practice, it means that we can use the theorem \( A \) during the proof of \( B \). This is the deep reason why we can use theorem, and this is why the theorems we already proved are allowed to be in our bag of hypothesis, because of the modus ponens. For a more formal construction of this, see the \text{cut-elimination} procedure.  
 
 \begin{cdef}{}{induction}
     The \cemph{induction principle} tells us
@@ -290,7 +290,7 @@ This is in fact why we prove theorem. Indeed, this principle means that we can u
         \left(P(0) \land (\forall n \in \bb N, P(n) \implies P(n+1)) \right) \implies \forall n \in \bb N, P(n).
     \end{equation*} 
 \end{cdef}
-What is this telling us? Suppose we want to prove something of the shape
+This is the general induction we are already used to. Suppose we want to prove something of the shape
 \begin{equation*}
     \forall n \in \bb N, P(n),
 \end{equation*}
@@ -298,18 +298,22 @@ Then, if we can prove
 \begin{equation*}
     P(0) \land (\forall n \in \bb N, P(n) \implies P(n+1)),
 \end{equation*}
-by modus ponens, and the induction principle, it will prove \( \forall n \in \bb N, P(n) \). Now, to prove somehting \( A \land B \), we first do \( A \), then \( B \). In our case, we first prove \( P(0) \), this is the \cemph{base case}. Then we prove \( \forall n \in \bb N, P(n) \implies P(n+1) \), this is the \cemph{inductive step}. According to our rules, to prove something like that, we start the proof by "let \( n \in \bb N \)", and we prove \( P(n) \implies P(n+1) \). According to the rules again, to prove that, we assume \( P(n) \) and need to prove \( P(n + 1) \). In short, the proof of \( \forall n \in \bb N, P(n) \implies P(n+1) \) starts with:
-"Let \( n \in \bb N \), and assume \( P(n) \) is true", then we do maths to prove \( P(n+1) \). This is how we already knew induction.
+by modus ponens, and the induction principle, it will prove \( \forall n \in \bb N, P(n) \). Now, to prove something \( A \land B \), we first do \( A \), then \( B \). In our case, we first prove \( P(0) \), this is the \cemph{base case}. Then we prove \( \forall n \in \bb N, P(n) \implies P(n+1) \), this is the \cemph{inductive step}. According to our rules, to prove something like that, we start the proof by "let \( n \in \bb N \)", and we prove \( P(n) \implies P(n+1) \). According to the rules again, to prove that, we assume \( P(n) \) and need to prove \( P(n + 1) \). In short, the proof of \( \forall n \in \bb N, P(n) \implies P(n+1) \) starts with:
+"Let \( n \in \bb N \), and assume \( P(n) \) is true", then we do math to prove \( P(n+1) \). This is how we already knew induction.
 
 \begin{cex}{}{strong_inductions}
-    Use induction to prove the (very useful in practice) strong induction principle:
+    Use induction to prove the (very useful in practice) strong induction principle,
     \begin{equation*}
         \left(P(0) \land (\forall n \in \bb N, (\forall m \le n, P(m)) \implies P(n+1)) \right) \implies \forall n \in \bb N, P(n).
     \end{equation*} 
 \end{cex}
+\begin{cex}{}{strong_induction_prime_dec}
+    Use the strong induction principle to prove that any natural number \( n > 1 \) decomposes as a product of prime numbers.
+\end{cex}
+
 \subsubsection{Destructing proofs}
 
-Now that we saw how to prove something, it is time to do the opposite, and see how to use something we already proved. Indeed, hypothesis in our bag have certain shapes. It is time to see how to use deconstruct those shapes to apply them in our proofs. Thus, we place ourselves in the situation where we are doing a proof, and during this proof (as always) we have a bag of hypothesis.
+Now that we saw how to prove something, it is time to do the opposite, and see how to use something we already proved. Indeed, hypothesis in our bag have certain shapes. We now see how to use deconstruct those shapes to apply them in our proofs. Thus, we place ourselves in the situation where we are doing a proof, and during this proof (as always) we have a bag of hypothesis.
 \begin{itemize}
     \item Suppose we have an hypothesis \( A \land B \) in the bag. Then at any time during the proof, we can use \( A \) and we can use \( B \). It thus means that having \( A \land B \) in our bag of hypothesis is the same thing as having \( A \), and also having \( B \). 
     \item Suppose we have an hypothesis \( A \lor B \) in the bag. Then if we want to use this hypothesis, we need to do two times the proof. One using assuming that \( A \) is true, and another assuming that \( B \) is true. Indeed, when we have \( A \lor B \), we do not know what the universe will give us \( A \) or \( B \)? Hence, we take care, and make sure everything will be ok whatever she gives us.
@@ -323,12 +327,12 @@ Now that we saw how to prove something, it is time to do the opposite, and see h
     \item Suppose we have an hypothesis \( \neg A \) in our bag. Then if we can prove that \( A \) is true, we have a contradiction. 
     
     \item However in practice, we often distribute the negation. Indeed, we have (in classical logic), the following rules:
-        \begin{itemize}
+        \begin{enumerate}
             \item \( \neg (P \lor Q) \iff (\neg P \land \neg Q) \),
             \item \( \neg (P \and Q) \iff (\neg P \lor \neg Q) \),
             \item \( \neg (\forall x \in X, P(x)) \iff (\exists x \in X, \neg P(x)) \),
             \item \( \neg (\exists x \in X, P(x)) \iff (\forall x \in X, \neg P(x)) \).
-        \end{itemize}
+        \end{enumerate}
     Using that, we see that we can \textit{push} the negation into the very core of the statement, until we ultimately reach an atomic symbol, often a \( = \), or a \( \in \). For instance, instead of using directly the hypothesis \( \neg (\forall n \bb N, \exists k \in \bb N, n = 2k ) \), we will rather use
     \begin{align*}
         \neg (\forall n \bb N, \exists k \in \bb N, n = 2k ) &\iff \exists n \in \bb N, \neg(\exists k \in \bb N, n = 2k ) \\
@@ -340,9 +344,9 @@ Now that we saw how to prove something, it is time to do the opposite, and see h
 
 \subsubsection{On some of the notations}
 
-As in any language, maths as its own abbreviation, and tacit rules. In the following list, we try to hint some of the ways wa can craft mathematical sentences, what are their implicit assumptions, and how to deal with them.
+As in any language, maths has its own abbreviation, and tacit rules. In the following list, we try to hint some of the ways we better construct mathematical sentences, what are their implicit assumptions, and how to deal with them.
 \begin{itemize}
-    \item In most textbook, you will barely see the connective \( \implies \), and somehow it is the one that is the most widely used. This is because the implication are all implicit, and this is the reader who needs to reconstruct them. For instance, when we write
+    \item In most textbook, you will barely see the connective \( \implies \), and somehow it is the one that is the most widely used. This is because the implication are all implicit, and it is the reader's job to reconstruct them. For instance, when we write
     \begin{equation*}
         \text{If } P, \text{ then }Q,
     \end{equation*}
@@ -360,15 +364,15 @@ As in any language, maths as its own abbreviation, and tacit rules. In the follo
     
     \item The exists \( \exists \) quantifier also read as "there is", "for some", etc.
     
-    \item When dealing with quantifiers, we also often say "such that". For instance \( \exists y \in X, \forall x \in X, x = y \) would read as \textit{there is some \( y \) in \( X \) \cemph{such that} for all \( x \) in \( X \), \( x = y \)}. Exercise: convince yourself that this in in fact the definition of \( \exists! x \in X \). 
+    \item When dealing with quantifiers, we also often say "such that". For instance \( \exists y \in X, \forall x \in X, x = y \) would read as \textit{there is some \( y \) in \( X \) \cemph{such that} for all \( x \) in \( X \), \( x = y \)}. Exercise: convince yourself that "\( \exists y \in X, \forall x \in X, x = y \)" is in in fact the definition of \( \exists! x \in X \). 
     
     \item When we say "it suffices that \( A \) for \( B \)", it means that \( A \implies B \). For instance, it suffices that \( n \) is divisible by \( 4 \) to be even. When we say "it is necessary that \( A \) for \( B \)", it means that \( B \implies A \). For instance, it is necessary that \( n \) is even for \( n \) to be divisible by \( 4 \). If we say "\( A \) is sufficient and necessary for \( B \)", then it means \( A \iff B \).
     
-    \item When we write "i.e.", we mean that what comes before is the same thing as what come after. For instance in a proof, we will find "\( n + 1 = m \), i.e. \( 'n = m - 1 \)". We also use "that is" in place of "i.e." (in fact, i.e. is "id est" in Latin, which translates to "that is").
+    \item When we write "i.e.", we mean that what comes before is the same thing as what come after, i.e. we mean \( \iff \). For instance in a proof, we will find "\( n + 1 = m \), i.e. \( n = m - 1 \)". We also use "that is" in place of "i.e." (in fact, i.e. is "id est" in Latin, which translates to "that is").
     
-    \item In these notes, we use the notation \( \defeq \) to define a new object, like an abbreviation for the new thing. Thus, when we write \( a = b \), it means that the thing \( a \) we are already working with is equal to the thing \( b \) we were already working with, but when we write \( a \defeq b \), we are giving a new name to the thing \( b \). Of course, after writing \( a \defeq b \), we also have \( a = b \). This notation might seem useless, but is often convenient to remember that we are not claiming any mathematical truth, just a way to abbreviate something longer.
+    \item In these notes, we sometimes use the notation \( \defeq \) to define a new object, like an abbreviation for the new thing. Thus, when we write \( a = b \), it means that the thing \( a \) we were already working with is equal to the thing \( b \) we were already working with, but when we write \( a \defeq b \), we are giving a the new name \( a \) to the thing \( b \) we were already working with. Of course, after writing \( a \defeq b \), we also have \( a = b \). This notation might seem useless, but is often convenient to remember that we are not claiming any mathematical truth, just a way to abbreviate something longer.
      
     \item This is not purely notational, but it is very useful to typecheck! If you are a physicist, then you know it already (we do not add meters with kilograms). If you program in a typed language then you know it already (a variable of type \verb|int| cannot be a variable of type \verb|string|). Math is a typed language. If something does not typecheck, then it is either an abuse of notation (try to make the notation more explicit if you are not familiar with it enough), or an error.
 \end{itemize}
 
-Unfortunately, this list is far from being exhaustive. Worse, each subfield of math uses its own abbreviation, notation, and way of saying things. Mathematic is a language that contains many many subvarieties, and it is often difficult, when learning a new subject, to familiarize oneself with its sometimes peculiar rules. Notice however that no domain of math says something false. That is, everything will \cemph{always} have a precise and well defined meaning. It might juts take some time and effort to see it. Once you are use to it, you understand the power of notation, and the great things you can do with it. 
+Unfortunately, this list is far from being exhaustive. Worse, each subfield of math uses its own abbreviations, notations, and way of saying things. Mathematic is a language that contains many many subvarieties, and it is often difficult, when learning a new subject, to familiarize oneself with its sometimes peculiar rules. Notice however that no domain of math says something false (as far as mathematician are aware). That is, everything will \cemph{always} have a precise and well defined meaning. It might juts take some time and effort to see it. Once you are use to it, you understand the power of notation, and the great things you can do with it. 

@@ -213,6 +213,10 @@ Monoids are interesting objects, but if we ask moreover that every element has a
     which simplifies to \( x' = \inv x \). 
 \end{lemproof}
 
+\begin{crem}{}{inverse_element_unique}
+    Beware that it is very important that we know \( G \) to be a group for Lemma \ref{lem:inverse_unique_group}. Indeed, try to find an example of monoid where \( x \cdot y = e \), but \( y \cdot x \neq e \). 
+\end{crem}
+
 \begin{cex}{}{relationships_in_groups}
     Let \( (G, \cdot, e) \) be a group, and let \( x, y \in G \), prove that we always have the following identities (and remember that they exists):
     \begin{itemize}
@@ -257,6 +261,10 @@ We now dive into the world of morphism of groups. We used the word \textit{isomo
 \begin{cdef}{}{morphism_group}
     Let \( f : G \to H \) be a function between two groups, we say that \( f \) is a \cemph{morphism of groups} if \( f(e_G) = e_H \), for all \( x, y \in G \), \( f(xy) = f(x)f(y) \), and for all \( x \in G \), \( f(\inv x) = \inv {f(x)} \). That is, \( f \) is a function that respect the structure of a group, namely the neutral element, the multiplication, and taking the inverse. 
 \end{cdef}
+
+\begin{cex}{}{morphism_group_enough_law}
+    Prove that if \( f : G \to H \) is a function between two groups such that for all \( x, y \in G \), \( f(xy) = f(x)f(y) \), then it is the case that \( f(e_G) = e_H \), and that \( f(\inv x) = \inv {f(x)} \). Therefore, Definition \ref{def:morphism_group} is redundant, and it suffices to check that \( f(xy) = f(x)f(y) \) for \( f \) to be a morphism of groups.
+\end{cex}
 
 \begin{cexp}{}{group_morphism_example}
     \begin{itemize}
@@ -605,16 +613,16 @@ Uniqueness of such a couple allows us to define
     Generally, there is no harm in removing completely the notation \( \overline k \), and simply write \( k \). Therefore, in \( \bb Z_2 \), we will write \( 1 + 1 = 0 \) and \( -1 = 1 \).
 \end{crem}
 
-\subsection{Application to arithmetic}
+% \subsection{Application to arithmetic}
 
-\begin{cdef}{}{gcd_def}
-    Let \( m, n \in \bb Z \), we define the \cemph{greatest common divisor}, or \cemph{gcd}, to be
-    \begin{equation*}
-        \gcd (m, n) \defeq \max \{ k \in \bb N \mid k \text{ divides both \( m \) and \( n \) } \}.
-    \end{equation*} 
-    This definition makes sense, as \( 1 \) divides all numbers, so the set is non-empty.
-    If \( \gcd(m, n) = 1 \), we say that \( m \) and \( n \) are \cemph{coprime}.
-\end{cdef}
+% \begin{cdef}{}{gcd_def}
+%     Let \( m, n \in \bb Z \), we define the \cemph{greatest common divisor}, or \cemph{gcd}, to be
+%     \begin{equation*}
+%         \gcd (m, n) \defeq \max \{ k \in \bb N \mid k \text{ divides both \( m \) and \( n \) } \}.
+%     \end{equation*} 
+%     This definition makes sense, as \( 1 \) divides all numbers, so the set is non-empty.
+%     If \( \gcd(m, n) = 1 \), we say that \( m \) and \( n \) are \cemph{coprime}.
+% \end{cdef}
 
 % \begin{cdef}{}{operation_mod}
 %     Therefore, the result of Exercise \ref{exp:mod_compatible_operation} allows us to define 
@@ -639,3 +647,73 @@ Uniqueness of such a couple allows us to define
 %     K \defeq \{ k, k + 1, \dots, k + (n - 1) \},
 % \end{equation*}
 % and create the bijection \(  \)
+
+\subsection{Rings}
+
+A ring is a group and a monoid behaving well together. When two interesting structures interact in interesting ways, is where mathematics happens. Ring theory revolutionized the realm of mathematics last century, and they belong to the toolbox of any person interest with math.
+
+\begin{cdef}{}{ring}
+    A \cemph{ring} \( (R, +, \cdot, 0, 1) \) is the data of a set \( R \) together with
+    \begin{enumerate}
+        \item A commutative group structure \( (R, +, 0) \),
+        \item A monoid structure \( (R, \cdot, 1) \),
+    \end{enumerate}
+    such that multiplication distributes over addition, that is, for all \( a, b, c \in R \),
+    \begin{equation*}
+        a \cdot(b + c) = (a \cdot b) + (a \cdot c),
+    \end{equation*}
+    and
+    \begin{equation*}
+        (b + c)\cdot a = (b \cdot a) + (c \cdot a).
+    \end{equation*}
+\end{cdef}
+
+\begin{cexp}{}{ring_example}
+    We already know examples of rings:
+    \begin{itemize}
+        \item \( (\bb Z, +, \cdot, 0, 1) \) is a ring.
+        \item \( (\bb R, +, \cdot, 0, 1) \) is a ring.
+    \end{itemize}
+\end{cexp}
+
+\begin{crem}{}{notation_rings}
+    As indeed rings are generalizations of the structure of \( \bb Z \) and \( \bb R \), we will use the same convention of notations than for those two sets. It means that we often omit the symbol \( \cdot \), and we give it higher priority than \( + \), so instead of writing
+    \begin{equation*}
+        (x\cdot y) + z,
+    \end{equation*}
+    we will more concisely write
+    \begin{equation*}
+        xy + z.
+    \end{equation*}
+    As usual, we will say "let \( R \) be a ring", when we should rather say "let \( (R, +, \cdot, 0, 1) \)" be a ring. 
+\end{crem}
+
+\begin{clem}{}{zero_absorb_ring}
+    Let \( R \) be a ring, then for all \( a \in R \), \( 0\cdot a = 0 = a \cdot 0 \).
+\end{clem}
+\begin{lemproof}{zero_absorb_ring}
+    By distributivity, and by \( 0 \) being neutral for \( + \),
+    \begin{equation*}
+        a \cdot 0 = a \cdot (0 + 0) = a\cdot 0 + a \cdot 0.        
+    \end{equation*}
+    Subtracting \( a\cdot 0 \) both sides leads \( 0 = a \cdot 0 \). The other distributive law proves \( 0\cdot a = 0 \).
+\end{lemproof}
+
+\begin{cdef}{}{commutative_ring}
+    A ring is \cemph{commutative} if its underlying monoid structure is commutative. Notice that the group structure is already abelian in a ring.
+\end{cdef}
+
+\begin{cdef}{}{ring_morphism}
+    Let \( R, S \) be rings. A \cemph{ring morphism} \( f : R \to S \) is a function of the underlying sets that is bot a monoid morphism and a group morphism. It means that for all \( a, b \in R \):
+    \begin{align*}
+        &f(a + b) = f(a) + f(b), \\
+        &f(a\cdot b) = f(a)\cdot f(b), \\
+        &f(1) = 1, \\
+        &f(0) = 0.  
+    \end{align*}
+    Notice that the symbols \( (+, \cdot, 1, 0) \) on the left-hand side are things happening in \( R \), and in \( S \) in the right-hand side.
+\end{cdef}
+
+\begin{cex}{}{drop_f0_eq_0_ring}
+    Prove that we can drop the condition \( f(0) = 0 \) for a ring morphism, i.e. prove that it already follows from the firstthree equations.
+\end{cex}
