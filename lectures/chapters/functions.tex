@@ -1,0 +1,493 @@
+\section{Sets and functions}
+
+We arrive to our first objects of interest, sets and functions. We cannot really give a precise definition of what a set is, it is a very far reaching question, and we will content ourselves (that will be enough for our applications), of a very intuitive definition. I am saying here that we will base the entire building of mathematics on something that we do not define precisely. This is crazy, but in fact, this is also what is happening in general. However, we try to reduce the part that we leave to intuition to a smaller and more specific chunk that we then build around, and we can study further. Here, we will be shaky, and treat sets as primitive objects with given sets of rules and syntax, that we will familiarize with.
+
+\subsection{Sets}
+
+\begin{cdef}{}{a_set}
+    A \cemph{set} \( X \) is something. The syntax
+    \begin{equation*}
+        x \in X
+    \end{equation*}
+    means that we are taking something, named \( x \), inside the set \( X \). We call \( x \) an \cemph{element} of \( X \). If there is a bunch of things \( x_1, \dots, x_n \), and I want to make a set out of them, we use the syntax:
+    \begin{equation*}
+        \{ x_1, \cdots, x_n \}.
+    \end{equation*}
+    We will see later more advanced construction to make better sets.
+\end{cdef}
+
+We can create sets of almost (and this "almost" might be the most important "almost" of math) anything. For instance, here are a bunch of classical sets, that can be defined more precisely from smaller sets, but again, we do not have time to enter into such details.
+
+\begin{cexp}{}{basic_sets}
+    Here are some examples of sets:
+    \begin{itemize}
+        \item \( \emptyset \) is the \cemph{empty set}, the set with nothing in it. 
+        \item \( \bb N \) is the set of \cemph{natural numbers}, its elements are the numbers \( 0, 1, 2, \cdots \).
+        \item \( \bb Z \) is the set of \cemph{integers}, its elements the numbers \( \cdots, -2, -1, 0, 1, 2, \cdots \).
+        \item \( \{ a, b \} \) is the set with two elements, called for the occasion \( a \) and \( b \).
+    \end{itemize}
+\end{cexp}
+
+\begin{cex}{}{empty_set_true}
+    Argue that for all \( x \in \emptyset \), \( x = 0 \), and that for all \( x \in \emptyset \), \( x = 1 \). What is happening here, did we just prove \( 0 = 1 \)?
+\end{cex}
+\begin{cdef}{}{equality_sets}
+    Let \( X \) and \( Y \) be two sets. We say that that \( X \) is \cemph{included} in \( Y \), and write \( X \subseteq Y \) if
+    \begin{equation*}
+        \forall x \in X, x \in Y.
+    \end{equation*}
+    We that that \( X \) and \( Y \) are equal if \( X \subseteq Y \) and \( Y \subseteq X \).
+\end{cdef}
+
+\begin{cex}{}{equality_iff}
+    Argue that two sets \( X \) and \( Y \) are equal is to say
+    \begin{equation*}
+        \forall x, x \in X \iff x \in Y.
+    \end{equation*}    
+\end{cex}
+
+\begin{cex}{}{N_sub_Z}
+    Prove that \( \bb N \subseteq \bb Z \).
+\end{cex}
+
+Let us see a very useful way to build sets from other. It goes formally by the name of \cemph{replacement} axiom, and is one of the foundational tool of mathematics. We present it a little bit informally here. 
+\begin{cdef}{}{replacement_axiom}
+    Let \( X \) be a set, and \( \phi(x) \) a formula that depends on a parameter \( x \) allowed to vary in \( X \). Then we define the set
+    \begin{equation*}
+        \{ x \in X \mid \phi(x) \}    
+    \end{equation*}
+    to be the subset of \( X \) whose elements are precisely those of \( X \) that makes \( \phi \) true.
+\end{cdef}
+
+\begin{cexp}{}{natural_from_integer_replacement}
+    We can use the formula \( \phi(n) \defeq n \geq 0 \) to define the natural from the integer, indeed:
+    \begin{equation*}
+        \bb N = \{ n \in \bb Z \mid n \geq 0 \}.
+    \end{equation*}
+\end{cexp}
+
+\begin{cex}{}{even_from_natural}
+    Using replacement, define the set of even number from the set of natural numbers.
+\end{cex}
+
+There are very important operations that we can do with sets. First, we have union, intersection, and complement. They are analogous to the logical operation we saw previously.
+
+\begin{cdef}{}{union_intersection}
+    Let \( X, Y \) be two sets. We define the \cemph{intersection} of \( X \) and \( Y \) by
+    \begin{equation*}
+        X \cap Y \defeq \{ x \mid x \in X \text{ and } x \in Y \}.
+    \end{equation*}
+    We define the \cemph{union} of \( X \) and \( Y \) by
+    \begin{equation*}
+        X \cup Y \defeq \{ x \mid x \in X \text{ or } x \in Y \}.
+    \end{equation*}
+    Let \( A \subseteq X \). We define the \cemph{complement} of \( A \) in \( X \) to be the set
+    \begin{equation*}
+        X \backslash A \defeq \{ x \in X \mid x \notin A \}.
+    \end{equation*}
+    The syntax \( x \notin A \) is just a shorthand for \( \neg (x \in A) \), the same way \( x \neq y \) is shorthand for \( \neg (x = y) \).
+\end{cdef}
+
+\begin{cex}{}{distributivity}
+    Prove that, for all sets \( X, Y, Z \), we have 
+    \begin{equation*}
+        X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z).
+    \end{equation*}
+    Prove that for all \( A, B \subseteq X \), we have
+    \begin{equation*}
+        X \backslash (A \cup B) = (X \backslash A) \cap (X \backslash B).
+    \end{equation*}
+    Does it remind you of something?
+\end{cex}
+
+Next, we have the product of sets. It is axiomatic in the theory, so we cannot define it from smaller primitive.
+\begin{cdef}{}{product}
+    Let \( X, Y \) be sets. The \cemph{product} of \( X \) and \( Y \) is the set
+    \begin{equation*}
+        X \times Y \defeq \{ (x, y) \mid x \in X, y \in Y \},
+    \end{equation*}
+    constituted of all the pairs \( (x, y) \) for \( x \in X \) and \( y \in Y \).
+    If we have more sets, we can generalize this construction, for instance, with three sets \( X, Y, Z \), we define
+    \begin{equation*}
+        X \times Y \times Z \defeq \{ (x, y, z) \mid x \in X, y \in Y, z \in Z \}.
+    \end{equation*}
+    In that case, we rather call \( (x, y, z) \) a \cemph{tuple}, so a pair is a 2-tuple.
+\end{cdef}
+
+\begin{crem}{}{pairs_vs_set}
+    Notice that the pair \( (x, y) \) is different from the pair \( (y, x) \). However, the set \( \{ x, y \} \) is the set \( \{ y, x \} \). Pairs care about order, sets do not. Tuples care about multiplicity, sets do not, the tuple \( (x, x) \) is very different from the tuples \( (x) \) or \( (x, x, x) \) but the sets \( \{ x, x \} \), \( \{ x \} \), and \( \{ x, x, x \} \) are all the same.
+\end{crem}
+
+\begin{cexp}{}{product_example}
+    We have the following products:
+    \begin{itemize}
+        \item \( \{ 0, 1 \} \times \{ a, b, c \} = \{ (0, a), (0, b), (0, c), (1, a), (1, b), (1, c) \} \).
+        \item For all set \( X \), \( X \times \emptyset = \emptyset \).
+    \end{itemize}
+\end{cexp}
+
+\begin{cex}{}{product_cardinal}
+    If \( X \) has \( n \) elements, and \( Y \) has \( m \) elements, how many elements has \( X \times Y \)?
+\end{cex}
+
+Another primitive of sets is the power set. The power set of a set is another set that contains all the subsets of the set with started with.
+\begin{cdef}{}{power_set}
+    Let \( X \) be a set. We define the set \( 2^X \) (also written \( \mathcal{P}(X) \)) to be the set 
+    \begin{equation*}
+        2^X \defeq \{ A \mid A \subseteq X \}.
+    \end{equation*}
+\end{cdef} 
+
+\begin{cexp}{}{power_set_ex}
+    We have the following power sets.
+    \begin{itemize}
+        \item \( 2^{\{0, 1\}} = \{ \emptyset, \{ 0 \}, \{ 1\}, \{ 0, 1\} \}\).
+        \item \( 2^\emptyset = \{ \emptyset \} \).
+    \end{itemize}
+    Notice that \( \emptyset \) is very different from \( \{ \emptyset \} \). The former has zero elements, while the latter has one.
+\end{cexp}
+
+\begin{cex}{}{power_set_cardinal}
+    If \( X \) has \( n \) elements, how many elements has \( 2^X \)?
+\end{cex}
+
+
+\subsection{Functions}
+
+Function are the most fundamental objects of mathematics. A function can describe all sorts of thing, it is something that takes an input and produces an output. It is very convenient to declare inputs and outputs to be sets. Then a function will any element from the input set, and return some element in the output set.   
+
+\begin{cdef}{}{function}
+    Let \( X, Y \) be two sets. A function \( f \) between \( X \) and \( Y \) is a thing that, for all \( x \in X \), gives an element \( f(x) \in Y \). We write
+    \begin{equation*}
+        f : X \to Y.
+    \end{equation*}
+    \( X \) is called the \cemph{domain} of \( f \), and \( Y \) is called the \cemph{codomain}. If we want to specify further the behavior of the function, we can use the following syntax
+    \fun{f}{X}{Y}{x}{f(x)}
+\end{cdef}
+
+Note that a function is an asymmetric notion, the domain and the codomain are highly non-interchangeable. 
+\begin{cexp}{}{example_functions}
+    Here are a bunch of functions, and some various way of syntactically defining them (which are all equivalent, we often use the one that is more convenient).
+    \begin{itemize}
+        \item \textit{A function that doubles its input.}
+            \fun{f}{\bb N}{\bb N}{x}{2x}
+        \item \textit{A function that says if something is true.} Let \( f : \bb N \to \{ \mathrm{true}, \mathrm{false} \} \) be the function such that \( f(x) = \mathrm{true} \) if \( x = 57 \), and \( f(x) = \mathrm{false} \) else. 
+        \item \textit{The function that does nothing}. Let \( f : X \to X \) be the function sending \( x \) to itself.
+    \end{itemize} 
+\end{cexp}
+
+The last example is so fundamental that it deserves its own definition.
+\begin{cdef}{}{id_function}
+    Let \( X \) be a set, we call \( \id_X \) the function defined by
+    \fun {\id_X} X X x {x.}
+    We call it the \cemph{identity} on \( X \).
+\end{cdef}
+
+\begin{cdef}{}{equality_function}
+    Let \( f, g : X \to Y \) be two functions, we say that \( f = g \) if for all \( x \in X \), we have \( f(x) = g(x) \). This principle is called \cemph{extensionnality}.
+\end{cdef}
+Beware that the domain and the codomain are part of the data of a function, that is the function
+    \fun{f}{\bb N}{\bb N}{x}{x + 1}
+and the function
+    \fun{f}{\bb N}{\bb Z}{x}{x + 1}
+are not the same, even though they have the same behavior and produce the same outputs.
+
+We now define some important data associated to a function. 
+\begin{cdef}{}{image_preimage}
+    Let \( f : X \to Y \) be a function. Let \( A \subseteq X \), the \cemph{image} of \( A \) through \( f \) is the subset of \( Y \) defined by
+    \begin{equation*}
+        f(A) \defeq \{ y \in Y \mid \exists x \in A, f(x) = y \}.
+    \end{equation*}
+    Let \( B \subseteq Y \), the \cemph{preimage} of \( B \) through \( f \) is the subset of \( X \) defined by 
+    \begin{equation*}
+        f^{-1}(B) \defeq \{ x \in X \mid f(x) \in B \}.
+    \end{equation*} 
+\end{cdef}
+
+Be careful that we overload the notation \( f(-) \) with, in place of element of the sets, sets themselves, therefore if \( x \in X \) and \( A \subseteq X \), then writing \( f(x) \) and \( f(A) \) is two very distinct things.
+
+\begin{cex}{}{pre_image_natural}
+    Let \( f : \bb N \to \bb N \) be the function defined by \( f(x) = 2x \). What is the set \( f(\bb N) \)? Let \( \mathcal O \) be the subset of \( \bb N \) constituted of odd numbers. What is the set \( f^{-1}(\mathcal O) \)?    
+\end{cex}
+
+\begin{cex}{}{union_inter_function}
+    Let \( f : X \to Y \) be a function, let \( A, A' \subseteq X \) and \( B, B' \subseteq Y \). Prove some of the following identities (they are very useful to know, or at least remember they exist).
+    \begin{itemize}
+        \item \( f(A \cup A') = f(A) \cup f(A) \).
+        \item \( f(A \cap A') \subseteq f(A) \cap f(A') \).
+        \item \( f^{-1}(B \cup B') = f^{-1}(B) \cup f^{-1}(B') \).
+        \item \( f^{-1}(B \cap B') \subseteq f^{-1}(B) \cap f^{-1}(B') \).
+        \item \( f^{-1}(f(X)) = X \).
+        \item \( f^{-1}(f(A)) \supseteq A \).
+        \item \( f(f^{-1}(Y)) = f(X) \).
+        \item \( f(f^{-1}(B)) \subseteq B \).
+    \end{itemize}
+    It is even a better exercise to try to come up with a example where the full equality fails, for instance provide a function where we do not have \( f(A \cap B) = f(A) \cap f(B) \). For a more exhaustive list of these relations, see this \href{https://en.wikipedia.org/wiki/Image_(mathematics)}{Wikipedia page}.
+\end{cex}
+
+We can serialize function, that is if we have a function \( f : X \to Y \), and a function \( g : Y \to Z \), we can consider the function that does \( f \), then \( g \). 
+
+\begin{cdef}{}{composition}
+    Let \( f : X \to Y \) and \( g : Y \to Z \) be function such that the codomain of \( f \) is the domain of \( g \). We define the function \( g \circ f \) to be \( g \circ f (x) \defeq g(f(x)) \). We call it the \cemph{composition} of \( f \) and \( g \).
+\end{cdef}
+
+Composition is what we call a partial operation, not all functions can be composed: the output of the first one needs to match the input of the second one. 
+\begin{cexp}{}{compose_add_mul}
+    Let \( f : \bb N \to \bb N \) be the function defined by \( f(x) = 2x \), and \( g : \bb N \to \bb N \) be the function defined by \( g(x) = x + 1 \). Compute the functions \( g \circ f \) and \( f \circ g \).
+\end{cexp} 
+
+\begin{cdef}{}{inverse_function}
+    Let \( f : X \to Y \) be a function. An \cemph{inverse} to \( f \) is a function \( g : Y \to X \) such that \( f \circ g = \id_Y \) and \( g \circ f = \id_X \).
+\end{cdef}
+
+\begin{clem}{}{inverse_unique}
+    If \( f : X \to Y \) has an inverse, then it is unique.      
+\end{clem}
+\begin{lemproof}{inverse_unique}
+    Let \( f : X \to Y \) be a function, and suppose we have two inverses \( g, g' : Y \to X \). Let \( y \in Y \), we have by definition \( y = f\circ g(y) \), thus applying \( g' \) both sides gives
+    \begin{equation*}
+        g'(y) = g'\circ f\circ g(y),
+    \end{equation*}
+    and thus, as \( g'\circ f = \id_X \), we have
+    \begin{equation*}
+        g'(y) = g'\circ f\circ g(y) = g(y).
+    \end{equation*}
+    We conclude that for all \( y \in Y \), \( g(y) = g'(y) \), thus by extensionality, \( g = g' \).
+\end{lemproof}
+
+Therefore, Lemma \ref{lem:inverse_unique} allows us to use the notation \( f^{-1} \) for \textit{the} unique inverse of \( f \), when it exists. Be careful that \( f^{-1} \) might not always exists, and is in conflict with the notation \( f^{-1}(B) \) (which is always well defined), and both do not mean the same thing.
+
+\begin{cex}{}{inverse_exist}
+    Provide a function that has an inverse, and a function that does not have an inverse.
+\end{cex}
+
+\begin{cex}{Conflict of notation}{conflict_notation_inverse}
+    Let \( f : X \to Y \) be a function that admits an inverse, and let \( B \subseteq Y \). Prove that
+    \begin{equation*}
+        f^{-1}(B) = f^{-1}(B),
+    \end{equation*}
+    where the \( f^{-1}(B) \) on the left is the preimage of \( B \) through \( f \), and \( f^{-1}(B) \) on the right the the image of \( B \) through the function \( f^{-1} \).
+\end{cex}
+
+We continue this section on functions by three very important notions.
+
+\begin{cdef}{}{inj_surj}
+    Let \( f : X \to Y \) be a function. We say that:
+    \begin{itemize}
+        \item \( f \) is \cemph{injective} if 
+        \begin{equation*}
+            \forall x, y \in X, f(x) = f(y) \implies x = y. 
+        \end{equation*}
+        \item \( f \) is \cemph{surjective} if
+        \begin{equation*}
+            \forall y \in Y, \exists x \in X, f(x) = y.    
+        \end{equation*}
+        \item \( f \) is \cemph{bijective} if it is both injective and surjective.
+    \end{itemize} 
+\end{cdef}
+
+\begin{cex}{}{example_surj_inj}
+    Prove that the function from \( \bb N \) to \( \bb N \) that adds \( 1 \) to a number is injective. Is it surjective? Prove that the function from \( \bb Z \) to \( \bb Z \) that add one to a number is bijective. 
+\end{cex}
+\begin{cex}{}{surjective_image}
+    Let \( f : X \to Y \) be a function. Let \( f' : X \to f(X) \) defined by letting \( f'(x) \defeq f(x) \). Prove that \( f' \) is surjective.
+\end{cex}
+
+In fact (under the axiom of choice), being bijective is equivalent to having an inverse.
+\begin{cprop}{}{inverse_bij}
+    Let \( f : X \to Y \) be a function with \( X \neq \emptyset \). We have
+    \begin{itemize}
+        \item \( f \) is injective if and only if there exists \( g : Y \to X \) such that \( g \circ f = \id_X \). 
+        \item \( f \) is surjective if and only if there exists \( g : Y \to X \) such that \( f \circ g = \id_Y \).
+        \item \( f \) is bijective if and only if it admits an inverse. 
+    \end{itemize}
+\end{cprop}
+\begin{propproof}{inverse_bij}
+    Suppose \( f : X \to Y \) is injective. As \( X \neq \emptyset \), select any \( x_0 \in X \). To define \( g : Y \to X \), take \( y \in Y \), if there is some \( x \in X \) such that \( f(x) = y \), define \( g(y) \defeq x \), else define \( g(y) \defeq x_0 \). By construction, for all \( x \in X \), \( g(f(x)) = x' \), where \( x' \) is such that \( f(x') = f(x) \), by injectivity, this means \( x = x' \), thus \( g(f(x)) = x \). Conversely, suppose \( f \) has a left inverse \( g \), and suppose \( f(x) = f(y) \), then applying \( g \) both sides yields \( g(f(x)) = g(f(y)) \), that is \( x = y \), so \( f \) is injective.
+
+    Next, suppose \( f \) is surjective. We construct \( g : Y \to X \) as follow. For all \( y \in Y \), we pick any element \( x \in f^{-1}(\{ y \}) \), and we let \( g(y) = x \). We can always pick such an element, as being surjective means precisely that for all \( y \in Y\), the set
+    \begin{equation*}
+        f^{-1}(\{ y \}) = \{ x \in X \mid f(x) = y \}
+    \end{equation*}
+    is non empty, so we can choose an element inside. (This last affirmation is quite subtle, to see that, Google "axiom of choice"). We then have, by construction, \( f(g(y)) = y \), as \( g(y) \in f^{-1}(\{ y \}) \). Conversely, if \( f \) admits a right inverse \( g \), then for all \( y \in Y \), \( f(g(y)) = y \), so the element \( g(y) \in X \) witnesses the existential quantifier for surjectivity.
+
+    Last, suppose \( f \) is bijective, then \( f \) is both surjective and injective, so by what we juts proved, there is a function \( g : Y \to X \) such that \( g \circ f = \id_X \), and a function \( g' : Y \to X \) such that \( f \circ g = \id_Y \) (they need not to be the same so far). Let \( y \in Y \), we have
+    \begin{equation*}
+        g'(y) = g'(f\circ g(y)) = (g' \circ f) (g(y)) = g(y),
+    \end{equation*}
+    so \( g = g' \), and thus \( f \) has an inverse. Conversely, suppose \( f \) has an inverse, then it is in particular a left inverse, so \( f \) is injective, and it is also a right inverse, so \( f \) is surjective, hence \( f \) is bijective.
+\end{propproof}
+
+\begin{clem}{}{bijections_compose}
+    Let \( f : X \to Y \) and \( g : Y \to Z \) be both bijection. Then \( g \circ f \) is a bijection.
+\end{clem}
+\begin{lemproof}{bijections_compose}
+    Call \( h \defeq \inv f \circ \inv g : Z \to X \), then one checks that \( h \circ (g \circ f) = \id_X \) and \( (g \circ f) \circ h = \id_Z \), therefore \( g \circ f \) is a bijection. 
+\end{lemproof}
+
+The following exercise emphasizes that the domain and codomain are \textit{really} part of the data of a function.
+\begin{cex}{}{example_inj_surj}
+    Determine if the following functions are injective, surjective, bijective, or none. We call \( \bb R^+ \) the set of real numbers greater or equal to \( 0 \).
+    \begin{itemize}
+        \item \( f : \bb R \to \bb R \) such that \( f(x) = x^2 \).
+        \item \( f : \bb R^+ \to \bb R \) such that \( f(x) = x^2 \).
+        \item \( f : \bb R \to \bb R^+ \) such that \( f(x) = x^2 \).
+        \item \( f : \bb R^+ \to \bb R^+ \) such that \( f(x) = x^2 \).
+    \end{itemize}
+\end{cex}
+
+% \subsection{Cardinality}
+
+The concept of bijection allows us to talk about finite sets, infinite sets, and cardinality. Let \( n \in \bb N \) be a natural number. We write \( [n] \) for the set \( \{ 1, \cdots, n \} \), with convention that \( [0] = \emptyset \).
+
+The next lemma is very important. However, it does not really make sense to prove it formally, as we would need to make precise the foundations we are working with, but we did not. We are hence assuming it, and hope it makes sense intuitively.
+\begin{clem}{Pigeonhole principle}{pigeon_hole}
+    Let \( n, p \in \bb N \). Then
+    \begin{itemize}
+        \item There exists an injection \( f : [n] \to [p] \) if and only if \( n \le p \).
+        \item There exists a surjection \( f : [n] \to [p] \) if and only if \( p \le n \).
+        \item There exists a bijection \( f : [n] \to [p] \) if anf only if \( n = p \).
+    \end{itemize}
+\end{clem}
+% \begin{lemproof}{unique_card}
+%     We do an induction on \( n \). If \( n = 0 \), then \( [0] \le [p] \) always. If \( n = 1 \), then for any function \( f: [1] \to [p] \), we have \( f(1) \in [p] \), so \( [p] \) is not empty, hence \( p \geq 1 \). Suppose we proved that whenever we have an injection \( f : [n] \to [p] \), then \( n \le p \). Assume we have an injection \( f : [n + 1] \to [p] \). Call \( f' : [n] \to [p] \) defined by \( f'(k) = f(k) \), then we check that \( f' \) is injective, because \( f \) is, so by inductive hypothesis, \( n \le p \). Suppose that \( n = p \) 
+% \end{lemproof}
+
+\begin{cdef}{}{finite_set}
+    A set \( X \) is \cemph{finite} if there exists some \( n \in \bb N \) such that \( X \) is in bijection with \( [n] \). In that case, we say that \( X \) has cardinality \( n \), we write \( |X| = n \), and say that \( X \) has \cemph{cardinality} \( n \). This is well defined, for if \( f : X \to [n] \) is a bijection and \( f' :  X \to [p] \) is a bijection, then \( f' \circ \inv f : [n] \to [p]  \) is a bijection (by Lemma \ref{lem:bijections_compose}), so \( n = p \) according to Lemma \ref{lem:pigeon_hole}.
+    Otherwise, we say that \( X \) is \cemph{infinite}.
+\end{cdef}
+
+
+\begin{cexp}{}{fintie_infinite_set_prop}
+    Let \( X, Y \) be sets. 
+    \begin{itemize}
+        \item If \( X \) is finite and there is a surjection \( X \to Y \), then \( Y \) is finite.
+        \item If \( X \) is infinite and there is an injection \( X \to Y \), then \( Y \) is infinite.
+        \item If there is a bijection \( X \to Y \), then \( X \) is finite if and only if \( Y \) is finite, and moreover in that case, the cardinality of \( X \) is the one of \( Y \).
+    \end{itemize}  
+\end{cexp}
+
+\begin{crem}{}{finite_set_notation}
+    When \( X \) is a finite set, we often say \( X = \{ x_1, \dots, x_n \} \) for some \( n \in \bb N \). This notation is justified by the fact that \( X \) is finite, so we have some bijection \( f : [n] \to X \), and \( x_i \) is just shorthand for \( f(i) \). By injectivity, if \( i \neq j \), then \( x_i \neq x_j \), and by surjectivity, all elements of \( X \) are of the form \( x_i \) for some \( i \).
+\end{crem}
+
+\subsection{Equivalence relations}
+
+Sometimes we have a set, and we would like to make things inside it \textit{more} equal to each other. For instance, let us take the set \( \bb N \). So far, if we take \( n, m \in \bb N \), then \( m = n \) if they are the same number. We would like to say that all even number are equal to each other, while all odd numbers are also equal to each other. The resulting set would then be a set with two elements, one for each parity. One element would represent all the even numbers, and the other one all the odd numbers. There is a very general way to do that called equivalence relation. We introduce it here because equivalence relations are pervasive in mathematics, and we will see them many times during this class. They are a little bit weird to talk about, and to define functions on them can be counter intuitive. 
+
+\begin{cdef}{}{binary_relation}
+    Let \( X \) be a set. A \cemph{binary relation} \( \sim \) on \( X \) is a subset of \( X \times X \). If \( (x, y) \in \sim \), we simply write
+    \begin{equation*}
+        x \sim y.
+    \end{equation*} 
+\end{cdef}
+
+\begin{cdef}{}{equiv_relation}
+    Let \( X \) be a set, and \( \sim \) a binary relation on \( X \). We say that
+    \begin{itemize}
+        \item \( \sim \) is \cemph{reflexive} if 
+        \begin{equation*}
+            \forall x \in X, x \sim x.
+        \end{equation*}
+        \item \( \sim \) is \cemph{symmetric} if
+        \begin{equation*}
+            \forall x, y \in X, x \sim y \implies y \sim x.
+        \end{equation*}
+        \item \( \sim \) is \cemph{reflexive} if for all \( x \in X \), \( x \sim x \).
+        \begin{equation*}
+            \forall x, y, z \in X, (x \sim y \land y \sim z) \implies x \sim z.
+        \end{equation*}
+    \end{itemize}
+    A reflexive, symmetric, transitive relation is called an \cemph{equivalence relation}. 
+\end{cdef}
+
+\begin{cexp}{}{equal_equiv}
+    The most famous equivalence relation of them all is simply the relation \( = \). Indeed, \( x = x \), if \( x = y \), then \( y = x \), and if \( x = y \) and \( y = z \), then \( x = z \). It is good to think of equivalence relations as an extended equality.    
+\end{cexp}
+
+\begin{cdef}{}{equiv_class}
+    Let \( (X, \sim) \) be a set with an equivalence relation. We define the \cemph{equivalence class} of \( x \), written \( [x] \), or \( \cl(x) \), to be the set
+    \begin{equation*}
+        [x] \defeq \{ y \in X \mid x \sim y \}.
+    \end{equation*}
+    If \( y \in [x] \), we say that \( y \) is a \cemph{representative} of \( [x] \). Of course by reflexivity, \( x \) is a representative of \( [x] \).
+\end{cdef}
+
+\begin{clem}{}{equivalence_equal}
+    Let \( (X, \sim) \) be a set with an equivalence relation. We have that \( x \sim y \), if and only if \( [x] = [y] \).
+\end{clem}
+\begin{lemproof}{equivalence_equal}
+    Suppose \( x \sim y \). Take any \( z \in [x] \), then by definition \( x \sim z \). By symmetry, also \( y \sim x \), so by transitivity, \( y \sim z \), hence \( z \in [y] \). We proved \( [x] \subseteq [y] \). Conversely, take \( z \in [y] \), then \( y \sim z \), and as \( x \sim y \), by transitivity \( x \sim z \) so \( z \in [x] \), hence \( [y] \subseteq [x] \), proving \( [x] = [y] \). Conversely, if \( [x] = [y] \), then as \( y \in [y] \), also \( y \in [x] \), so \( x \sim y \). 
+\end{lemproof}
+
+\begin{cdef}{}{quotient_set}
+    Let \( (X, \sim) \) be a set with an equivalence relation. We define the \cemph{quotient} of \( X \) by \( \sim \), written \( X/\sim \), to be the set
+    \begin{equation*}
+        X/\sim \defeq \{ [x] \mid x \in X \}.
+    \end{equation*}
+    We have a function \( p : X \to X / \sim \), called the \cemph{canonical projection}, that sends \( x \) to \( [x] \).
+\end{cdef}
+
+\begin{crem}{}{function_out_quotient}
+    Suppose \( (X, \sim) \) is a set with an equivalence relation, adn \( f : X \to Y \) is a function such that for all \( x, y \in X \), if \( x \sim y \), then \( f(x) = f(y) \). Then \( f \) defines a function \( \bar f : (X / \sim) \to Y \) defined by \( f([x]) = f(x) \). This does not depends on the choice of representative, for if \( [x] = [y] \), by Lemma \ref{lem:equivalence_equal}, \( x \sim y \), so we have \( f(x) = f(y) \), hence \( \bar f([x]) = \bar f([y]) \). 
+\end{crem}
+
+\begin{cex}{}{quotient_even}
+    Define \( \sim \) on the natural number by letting \( n \sim m \) if and only if \( m \) and \( n \) have same parity. Show that this is an equivalence relation, and that the set \( \bb N / \sim \) has two elements. Show that the canonical projection \( \bb N \to \{ [0], [1] \} \) acts as the "mod 2" function, by seeing \( [0] \) as \( 0 \), and \( [1] \) as \( 1 \). This idea will be further generalized in the lesson on modular arithmetic.
+\end{cex}
+
+Equivalence relations on a set \( X \) are precisely partitions of \( X \). A partition of a set is a way of dividing it into disjoint pieces.
+\begin{cdef}{}{partition_set}
+    Let \( X \) be a set. A \cemph{partition} of \( X \) is a collection of nonempty subsets \( \{U_i\}_{i\in I} \) of \( X \), such that \( \bigcup_{i \in I} U_i = X  \), and if \( i \neq j \), \( U_i \cap U_j = \emptyset \). 
+\end{cdef}
+
+\begin{cexp}{}{example_partition}
+    \begin{itemize}
+        \item The set of odd number, and the set of even number form a partition of \( \bb N \). 
+        \item The set \( \{ \{ a, b\}, \{ c \} \} \) forms a partition of \( \{ a, b, c \} \).
+        \item The set \( \{ \{ a, b\}, \{ b, c \} \} \) is \textit{not} a partition of \( \{ a, b, c \} \).
+        \item The set \( \{ \{ a, b\}, \{ c \} \} \) is \textit{not} a partition of \( \{ a, b, c, d \} \).
+    \end{itemize}
+\end{cexp}
+
+\begin{cprop}{}{partion_equivalence}
+    Let \( X \) be a set. There is a bijection between the set of all equivalence relations on \( X \), and the partition of \( X \), given by the function that sends an equivalence relation to the set of all its equivalence classes.
+\end{cprop}
+\begin{propproof}{partion_equivalence}
+    Let \( \sim \) be an equivalence relation on \( X \). We let \( \cl(X) \) be the set of equivalence classes of \( \sim \), then \( \bigcup_{C \in \cl(X)} C = X\). We show it forms a partition. Suppose \( [x] \neq [x'] \), and assume we have an \( y \in [x] \cap [x'] \), then by definition \( x \sim y \) and \( x' \sim y \), so by symmetry and transitivity, \( x \sim x' \), so by Lemma \ref{lem:equivalence_equal}, \( [x] = [x'] \), contradiction so \( [x] \cap [x'] = \emptyset \), hence the elements of \( \cl(X) \) are a partition of \( X \). Conversely, suppose \( \{U_i\}_{i \in I} \) is a partition of \( X \). Define \( \sim \) by
+    \begin{equation*}
+        x \sim y \iff \exists i \in I, x \in U_i \land y \in U_i. 
+    \end{equation*}
+    Let \( x \in X \), as \( \bigcup_{i \in I} U_i = X \), there exists some \( i \) such that \( x \in U_i \), so \( x \sim x \). The relation \( \sim \) is also seen to be symmetric, and for transitivity, suppose \( x \sim y \) and \( y \sim z \), then there are some \( i, j \) such that \( x, y \in U_i \) and \( y, z \in U_j \). In particular \( y \in U_i \cap U_j \), so \( U_i \cap U_j \neq \emptyset \), hence by contrapositive, \( i = j \), therefore \( x, z \in U_i \) meaning \( x \sim z \).
+\end{propproof}
+
+\begin{cexp}{}{partition_equal}
+    Let \( X \) be a set. Find the equivalence relation that corresponds the partition
+    \begin{equation*}
+        \{ \{ x\} \mid x \in X \}.
+    \end{equation*}
+    Find the equivalence relation that corresponds the partition
+    \begin{equation*}
+        \{ \{ X \} \}.
+    \end{equation*}
+\end{cexp}
+We give the following without proof (but it is an exercise, try first to do it for a two element partition).
+\begin{cprop}{}{formula_cardinality_partition}
+    Let \( X \) be a finite set, and let \( \{U_i\}_{i\in I} \) be a partition of \( X \). Then
+    \begin{equation*}
+        |X| = \sum\limits_{i \in I} |U_i|.
+    \end{equation*}
+\end{cprop}
+% \begin{propproof}{formula_cardinality_partition}
+%     We prove the formula by induction on the size of the partition. If \( {U_i}_{i\in I} \) has cardinality one, then \( {U_i}_{i\in I} = { X } \), and the formula is saying \( |X| = |X| \), which is true. Suppose we established the result up to some \( n \). Let \(  \)
+%     Let \( n \) be the cardinality of \( X \), and \( n_i \) be the cardinality of \( U_i \). 
+% \end{propproof}
+
+We conclude by a canonical result that will appear here and there under similar forms during this course.
+\begin{cthm}{}{epi_mono_set}
+    Let \( f : X \to Y \) be a function. There exists two (unique up to isomorphism) functions \( m, p \) such that \( p \) is surjective, \( m \) is injective, and \( f = m \circ p \). 
+\end{cthm}
+\begin{thmproof}{epi_mono_set}
+    Let \( \sim \) be the equivalence relation on \( X \) defined by \( x \sim y \) iff \( f(x) = f(y) \). We let \( p : X \to X/\sim \) be the canonical projection, it is indeed surjective, and we let \( m : (X/\sim) \to Y \) to be \( \bar f \) as in Remark \ref{rem:function_out_quotient}. If \( m([x]) = m([y]) \), then \( f(x) = f(y) \), so \( x \sim y \), hence by Lemma \ref{lem:equivalence_equal}, \( [x] = [y] \), so \( m \) is injective. Then we have \( m\circ p(x) = m([x]) = f(x) \).
+\end{thmproof}

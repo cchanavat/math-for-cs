@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Logic}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Connective}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Quantifiers}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Practical sentences, and how to do proofs}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}What is a proof?}{4}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Constructing proofs}{4}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Destructing proofs}{7}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}On some of the notations}{8}{subsubsection.1.3.4}%
+\contentsline {section}{\numberline {2}Sets and functions}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sets}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Functions}{12}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Equivalence relations}{16}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Abstract algebra}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Monoids}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Groups}{20}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}General theory of groups}{20}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Finite group theory}{24}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Cyclic groups}{26}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Rings}{28}{subsection.3.3}%

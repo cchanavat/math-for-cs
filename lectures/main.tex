@@ -1,0 +1,75 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper, top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+
+\usepackage{mlmodern}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[breakable,most]{tcolorbox}
+\tcbuselibrary{theorems}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{bbm}
+% \usepackage[shortlabels]{enumitem}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{
+   allbordercolors = Yellow!30,
+}
+
+
+\usepackage{quiver}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{bussproofs}
+\usepackage{multicol}
+\usepackage{paralist}
+
+\input{commands/basics.tex}
+\input{commands/categories.tex}
+\input{commands/colors.tex}
+\input{commands.tex}
+
+% Margins
+% \topmargin=-0.45in
+% \leftmargin=2in
+% \rightmargin=2in
+% \textwidth=4in
+% \textheight=9.0in
+% \headsep=0.25in
+
+\title{ Mathematics }
+\author{ Clémence Chanavat}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\vspace{3em}
+
+%--Paper--
+
+These notes are a first draft, so they are most likely full of typos. If something is not clear, seems wrong, or you simply have a question, feel free to drop an email at \href{mailto:clemence.chanavat@gmail.com}{clemence.chanavat@gmail.com}. The material will also probably evolve throughout the course. Have fun, and (re)read Section \ref{practical_section} whenever you are stuck.
+
+% \input{chapters/intro.tex}
+\pagebreak
+\input{chapters/logic.tex}
+\pagebreak
+\input{chapters/functions.tex}
+\pagebreak
+\input{chapters/groups.tex}
+
+
+
+%--Bib--
+% \bibliographystyle{alpha}
+% \bibliography{bibs/refs.bib}
+
+\end{document}
+
